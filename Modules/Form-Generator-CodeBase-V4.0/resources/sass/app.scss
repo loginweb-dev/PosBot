@@ -1,0 +1,68 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+@import '~admin-lte/dist/css/adminlte.css';
+
+.font_icon_size{
+	font-size: 24px;
+}
+.on_hover:hover {
+  box-shadow: 0 0 25px rgba(35,35,35,.3); 
+}
+.subscribed{
+ box-shadow: 0 0 25px rgba(35,35,35,.3);    
+}
+
+.app_tour_play_btn{
+	margin-top: 9px;
+	margin-bottom: 9px;
+	margin-left: 80px;
+}
+
+.dz-preview .dz-image img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.mb-85 {
+	margin-bottom: 85px;
+}
+
+.float-left {
+	float: left;
+}
+
+.form_custom_attr_field {
+	margin: 2px;
+	margin-top: 7px;	
+}
+
+.mb-10 {
+	margin-bottom: 10px;
+}
+
+.text-deco-none {
+	text-decoration: none !important;
+}
+.cursor-pointer {
+	cursor: pointer;
+}
+.edit-assigned-form {
+	background: #d2d6de;
+	padding-top: 6px;
+    padding-left: 6px;
+}
+
+.assign-form {
+	background: #86BCEB;
+	padding-top: 6px;
+	padding-left: 6px;
+	padding-right: 6px;
+}

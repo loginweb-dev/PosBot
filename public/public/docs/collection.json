@@ -1,0 +1,3419 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Ultimate POS API",
+        "_postman_id": "b990c48a-5451-497d-8757-f70c53146e3f",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Attendance management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Attendance",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/get-attendance\/:user_id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "id of the user"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Clock In",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/clock-in",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 1,\n    \"clock_in_time\": \"2000-06-13 13:13:00\",\n    \"clock_in_note\": \"laboriosam\",\n    \"ip_address\": \"ad\",\n    \"latitude\": \"ipsa\",\n    \"longitude\": \"et\"\n}"
+                        },
+                        "description": "[User must have \"essentials.allow_users_for_attendance_from_api\" permission to Clock in]",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Clock Out",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/clock-out",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": 1,\n    \"clock_out_time\": \"2000-06-13 13:13:00\",\n    \"clock_out_note\": \"quia\",\n    \"latitude\": \"explicabo\",\n    \"longitude\": \"voluptatem\"\n}"
+                        },
+                        "description": "[User must have \"essentials.allow_users_for_attendance_from_api\" permission to Clock out]",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List Holidays",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/holidays",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2020-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2020-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Brand management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List brands",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/brand",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified brand",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/brand\/:brand",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "brand",
+                                    "key": "brand",
+                                    "value": "1",
+                                    "description": "comma separated ids of the brands"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Business Location management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List business locations",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/business-location",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified business location",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/business-location\/:business_location",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "CRM",
+            "description": "",
+            "item": [
+                {
+                    "name": "List Follow ups",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/follow-ups",
+                            "query": [
+                                {
+                                    "key": "start_date",
+                                    "value": "2020-12-16",
+                                    "description": "format: Y-m-d (Ex: 2020-12-16)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2020-12-16",
+                                    "description": "format: Y-m-d (Ex: 2020-12-16)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "et",
+                                    "description": "filter the result through status, get status from getFollowUpResources->statuses",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "follow_up_type",
+                                    "value": "magnam",
+                                    "description": "filter the result through follow_up_type, get follow_up_type from getFollowUpResources->follow_up_types",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by",
+                                    "value": "start_datetime",
+                                    "description": "Column name to sort the result, Column: start_datetime",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "direction",
+                                    "value": "desc",
+                                    "description": "Direction to sort the result, Required if using 'order_by', direction: desc, asc",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Add follow up",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/follow-ups",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Meeting with client\",\n    \"contact_id\": 2,\n    \"description\": \"fugiat\",\n    \"schedule_type\": \"vel\",\n    \"user_id\": \"[2,3,5]\",\n    \"notify_before\": 5,\n    \"notify_type\": \"minute\",\n    \"status\": \"open\",\n    \"notify_via\": \"['sms' => 0 ,'mail' => 1]\",\n    \"start_datetime\": \"2021-01-06 13:05:00\",\n    \"end_datetime\": \"2021-01-06 13:05:00\",\n    \"followup_additional_info\": \"['call duration' => '1 hour']\",\n    \"allow_notification\": true\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified followup",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/follow-ups\/:follow_up",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "follow_up",
+                                    "key": "follow_up",
+                                    "value": "1%2C2",
+                                    "description": "comma separated ids of the follow_ups"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update follow up",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/follow-ups\/:follow_up",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "follow_up",
+                                    "key": "follow_up",
+                                    "value": "20",
+                                    "description": "id of the follow up to be updated"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Meeting with client\",\n    \"contact_id\": 2,\n    \"description\": \"quae\",\n    \"schedule_type\": \"ut\",\n    \"user_id\": \"[2,3,5]\",\n    \"notify_before\": 5,\n    \"notify_type\": \"minute\",\n    \"status\": \"open\",\n    \"notify_via\": \"['sms' => 0 ,'mail' => 1]\",\n    \"followup_additional_info\": \"['call duration' => '1 hour']\",\n    \"start_datetime\": \"2021-01-06 13:05:00\",\n    \"end_datetime\": \"2021-01-06 13:05:00\",\n    \"allow_notification\": true\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get follow up resources",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/follow-up-resources",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List lead",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/leads",
+                            "query": [
+                                {
+                                    "key": "assigned_to",
+                                    "value": "1%2C2%2C3",
+                                    "description": "comma separated ids of users to whom lead is assigned (Ex: 1,2,3)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "fugit",
+                                    "description": "Search term for lead name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "biz_name",
+                                    "value": "sit",
+                                    "description": "Search term for lead's business name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "mobile_num",
+                                    "value": "5",
+                                    "description": "Search term for lead's mobile number",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_id",
+                                    "value": "quia",
+                                    "description": "Search term for lead's contact_id. Ex(CO0005)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by",
+                                    "value": "ab",
+                                    "description": "Column name to sort the result, Column: name, supplier_business_name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "direction",
+                                    "value": "desc",
+                                    "description": "Direction to sort the result, Required if using 'order_by', direction: desc, asc",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Save Call Logs",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/crm\/call-logs",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"call_logs\": [\n        {\n            \"mobile_number\": \"maiores\",\n            \"mobile_name\": \"blanditiis\",\n            \"call_type\": \"call\",\n            \"start_time\": \"officiis\",\n            \"end_time\": \"quod\",\n            \"duration\": \"dicta\"\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Cash register management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List Cash Registers",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/cash-register",
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "open",
+                                    "description": "status of the register (open, close)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "user_id",
+                                    "value": "10",
+                                    "description": "id of the user",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "15",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create Cash Register",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/cash-register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"location_id\": 1,\n    \"initial_amount\": 10515.69776722,\n    \"created_at\": \"2020-5-7 15:20:22\",\n    \"closed_at\": \"2020-5-7 15:20:22\",\n    \"status\": \"close\",\n    \"closing_amount\": 366.6862539,\n    \"total_card_slips\": 15,\n    \"total_cheques\": 19,\n    \"closing_note\": \"voluptatem\",\n    \"transaction_ids\": \"1,2,3\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified Register",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/cash-register\/:cash_register",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "cash_register",
+                                    "key": "cash_register",
+                                    "value": "59",
+                                    "description": "comma separated ids of the cash registers"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Contact management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List contact",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/contactapi",
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": "distinctio",
+                                    "description": "Type of contact (supplier, customer)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "qui",
+                                    "description": "Search term for contact name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "biz_name",
+                                    "value": "numquam",
+                                    "description": "Search term for contact's business name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "mobile_num",
+                                    "value": "10",
+                                    "description": "Search term for contact's mobile number",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_id",
+                                    "value": "dolorum",
+                                    "description": "Search term for contact's contact_id. Ex(CO0005)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by",
+                                    "value": "nam",
+                                    "description": "Column name to sort the result, Column: name, supplier_business_name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "direction",
+                                    "value": "nihil",
+                                    "description": "Direction to sort the result, Direction: desc, asc",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create contact",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/contactapi",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"type\": \"customer\",\n    \"supplier_business_name\": \"consequatur\",\n    \"prefix\": \"soluta\",\n    \"first_name\": \"ut\",\n    \"middle_name\": \"nisi\",\n    \"last_name\": \"in\",\n    \"tax_number\": \"8787fefef\",\n    \"pay_term_number\": 3,\n    \"pay_term_type\": \"months\",\n    \"mobile\": \"4578691009\",\n    \"landline\": \"5487-8454-4145\",\n    \"alternate_number\": \"841847541222\",\n    \"address_line_1\": \"eaque\",\n    \"address_line_2\": \"alias\",\n    \"city\": \"qui\",\n    \"state\": \"consectetur\",\n    \"country\": \"dolores\",\n    \"zip_code\": \"totam\",\n    \"customer_group_id\": \"est\",\n    \"contact_id\": \"qui\",\n    \"dob\": \"2000-06-13\",\n    \"custom_field1\": \"natus\",\n    \"custom_field2\": \"ipsam\",\n    \"custom_field3\": \"mollitia\",\n    \"custom_field4\": \"id\",\n    \"email\": \"voluptatem\",\n    \"shipping_address\": \"dolores\",\n    \"position\": \"aut\",\n    \"opening_balance\": 0,\n    \"source_id\": 6,\n    \"life_stage_id\": 19,\n    \"assigned_to\": []\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified contact",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/contactapi\/:contactapi",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update contact",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/contactapi\/:contactapi",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"type\": \"customer\",\n    \"supplier_business_name\": \"voluptatem\",\n    \"prefix\": \"quo\",\n    \"first_name\": \"sint\",\n    \"middle_name\": \"et\",\n    \"last_name\": \"suscipit\",\n    \"tax_number\": \"488744dwd\",\n    \"pay_term_number\": 3,\n    \"pay_term_type\": \"months\",\n    \"mobile\": \"8795461009\",\n    \"landline\": \"65484-848-848\",\n    \"alternate_number\": \"9898795220\",\n    \"address_line_1\": \"sed\",\n    \"address_line_2\": \"velit\",\n    \"city\": \"debitis\",\n    \"state\": \"error\",\n    \"country\": \"vel\",\n    \"zip_code\": \"fugit\",\n    \"customer_group_id\": \"facilis\",\n    \"contact_id\": \"iusto\",\n    \"dob\": \"2000-06-13\",\n    \"custom_field1\": \"vero\",\n    \"custom_field2\": \"aut\",\n    \"custom_field3\": \"optio\",\n    \"custom_field4\": \"magnam\",\n    \"email\": \"et\",\n    \"shipping_address\": \"ad\",\n    \"position\": \"labore\",\n    \"opening_balance\": 10.3,\n    \"source_id\": 5,\n    \"life_stage_id\": 2,\n    \"assigned_to\": []\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Contact payment",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/contactapi-payment",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"contact_id\": 17,\n    \"amount\": 453.13,\n    \"method\": \"cash\",\n    \"paid_on\": \"2020-07-22 15:48:29\",\n    \"account_id\": 11,\n    \"card_number\": \"sunt\",\n    \"card_holder_name\": \"enim\",\n    \"card_transaction_number\": \"et\",\n    \"card_type\": \"aliquam\",\n    \"card_month\": \"non\",\n    \"card_year\": \"rem\",\n    \"card_security\": \"reiciendis\",\n    \"transaction_no_1\": \"dolorem\",\n    \"transaction_no_2\": \"ut\",\n    \"transaction_no_3\": \"et\",\n    \"cheque_number\": \"minima\",\n    \"bank_account_number\": \"ut\",\n    \"note\": \"quis\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Expense management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List expenses",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/expense",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "payment_status",
+                                    "value": "paid",
+                                    "description": "payment status",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "expense_for",
+                                    "value": "rerum",
+                                    "description": "id of the user for which expense is created",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "15",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create expense \/ expense refund",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/expense",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"location_id\": 1,\n    \"final_total\": 1638550.1785056,\n    \"transaction_date\": \"2020-5-7 15:20:22\",\n    \"tax_rate_id\": 6,\n    \"expense_for\": 20,\n    \"contact_id\": 20,\n    \"expense_category_id\": 13,\n    \"expense_sub_category_id\": 16,\n    \"additional_notes\": \"laboriosam\",\n    \"is_refund\": 0,\n    \"is_recurring\": 0,\n    \"recur_interval\": 1,\n    \"recur_interval_type\": \"months\",\n    \"subscription_repeat_on\": 15,\n    \"subscription_no\": \"placeat\",\n    \"recur_repetitions\": 20,\n    \"payment\": [\n        {\n            \"amount\": 453.13,\n            \"method\": \"cash\",\n            \"account_id\": 10,\n            \"card_number\": \"fuga\",\n            \"card_holder_name\": \"ut\",\n            \"card_transaction_number\": \"blanditiis\",\n            \"card_type\": \"est\",\n            \"card_month\": \"ullam\",\n            \"card_year\": \"blanditiis\",\n            \"card_security\": \"ut\",\n            \"transaction_no_1\": \"ab\",\n            \"transaction_no_2\": \"ipsum\",\n            \"transaction_no_3\": \"quae\",\n            \"note\": \"maxime\",\n            \"cheque_number\": \"enim\"\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified expense \/ expense refund",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/expense\/:expense",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "expense",
+                                    "key": "expense",
+                                    "value": "59",
+                                    "description": "comma separated ids of the expenses"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update expense \/ expense refund",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/expense\/:expense",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"final_total\": 38461.957,\n    \"transaction_date\": \"2020-5-7 15:20:22\",\n    \"tax_rate_id\": 3,\n    \"expense_for\": 9,\n    \"contact_id\": 11,\n    \"expense_category_id\": 4,\n    \"expense_sub_category_id\": 15,\n    \"additional_notes\": \"sapiente\",\n    \"is_recurring\": 0,\n    \"recur_interval\": 5,\n    \"recur_interval_type\": \"months\",\n    \"subscription_repeat_on\": 15,\n    \"subscription_no\": \"accusantium\",\n    \"recur_repetitions\": 15,\n    \"payment\": []\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List expense refunds",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/expense-refund",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "payment_status",
+                                    "value": "paid",
+                                    "description": "payment status",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "expense_for",
+                                    "value": "eos",
+                                    "description": "id of the user for which expense is created",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "15",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List expense categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/expense-categories",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Field Force",
+            "description": "",
+            "item": [
+                {
+                    "name": "List visits",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/field-force",
+                            "query": [
+                                {
+                                    "key": "contact_id",
+                                    "value": "voluptas",
+                                    "description": "id of the contact",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "assigned_to",
+                                    "value": "eos",
+                                    "description": "id of the assigned user",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "blanditiis",
+                                    "description": "status of the visit (assigned, finished)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "Start date filter for visit on format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "End date filter for visit on format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "15",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by_date",
+                                    "value": "desc",
+                                    "description": "Sort visit by visit on date ('asc', 'desc')",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create Visit",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/field-force\/create",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"contact_id\": 9,\n    \"visit_to\": \"et\",\n    \"visit_address\": \"et\",\n    \"assigned_to\": 4,\n    \"visit_on\": \"2021-12-28 17:23:00\",\n    \"visit_for\": \"quia\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update Visit status",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/field-force\/update-visit-status\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "17",
+                                    "description": "id of the visit to be updated"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"finished\",\n    \"reason_to_not_meet_contact\": \"ut\",\n    \"visited_on\": \"2021-12-28 17:23:00\",\n    \"visited_address\": \"Radhanath Mullick Ln, Tiretta Bazaar, Bow Bazaar, Kolkata, West Bengal, 700 073, India\",\n    \"latitude\": \"41.40338\",\n    \"longitude\": \"2.17403\",\n    \"comments\": \"quam\",\n    \"photo\": \"ad\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "New end points",
+            "description": "",
+            "item": [
+                {
+                    "name": "New List products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/new_product",
+                            "query": [
+                                {
+                                    "key": "order_by",
+                                    "value": "quia",
+                                    "description": "Values: product_name or newest",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_direction",
+                                    "value": "placeat",
+                                    "description": "Values: asc or desc",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_custom_field_1",
+                                    "value": "labore",
+                                    "description": "Custom field 1 of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "molestias",
+                                    "description": "comma separated ids of one or multiple category",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sub_category_id",
+                                    "value": "voluptate",
+                                    "description": "comma separated ids of one or multiple sub-category",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "not_for_sell",
+                                    "value": "eum",
+                                    "description": "(1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "send_lot_detail",
+                                    "value": "rerum",
+                                    "description": "Send lot details in each variation location details(1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "ipsa",
+                                    "description": "Search term for product name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sku",
+                                    "value": "nesciunt",
+                                    "description": "Search term for product sku",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_ids",
+                                    "value": "1%2C2",
+                                    "description": "comma separated ids of products",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "New List sells",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/new_sell",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_id",
+                                    "value": "eos",
+                                    "description": "id of the customer",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "payment_status",
+                                    "value": "due%2Cpartial",
+                                    "description": "Comma separated values of payment statuses. Available values due, partial, paid, overdue",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "user_id",
+                                    "value": "nisi",
+                                    "description": "id of the user who created the sale",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "service_staff_id",
+                                    "value": "unde",
+                                    "description": "id of the service staff assigned with the sale",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "shipping_status",
+                                    "value": "ordered",
+                                    "description": "Shipping Status of the sale ('ordered', 'packed', 'shipped', 'delivered', 'cancelled')",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "source",
+                                    "value": "est",
+                                    "description": "Source of the sale",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "customer_group_id",
+                                    "value": "saepe",
+                                    "description": "id of the customer group",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_name",
+                                    "value": "repellendus",
+                                    "description": "name of the product",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_sku",
+                                    "value": "autem",
+                                    "description": "sku of the product or variation",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_custom_field_1",
+                                    "value": "reiciendis",
+                                    "description": "custome field 1 of the product",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_custom_field_1",
+                                    "value": "qui",
+                                    "description": "custome field 1 of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_invoice_scheme_prefix",
+                                    "value": "culpa",
+                                    "description": "Invoice scheme prefix of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_category_id",
+                                    "value": "aut",
+                                    "description": "category id of the product",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_sub_category_id",
+                                    "value": "ad",
+                                    "description": "Sub category id of the product",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sell_ids",
+                                    "value": "55%2C64",
+                                    "description": "comma separated ids of the sells",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "only_subscriptions",
+                                    "value": "et",
+                                    "description": "Filter only subcription invoices (1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "send_purchase_details",
+                                    "value": "quo",
+                                    "description": "Get purchase details of each sell line (1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by_date",
+                                    "value": "desc",
+                                    "description": "Sort sell list by date ('asc', 'desc')",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "New List contact",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/new_contactapi",
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": "corrupti",
+                                    "description": "Type of contact (supplier, customer)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "customer_group_id",
+                                    "value": "officia",
+                                    "description": "id of the customer group",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "custom_field_1",
+                                    "value": "veniam",
+                                    "description": "Custom field 1 of the contact",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_ids",
+                                    "value": "2%2C3",
+                                    "description": "comma separated ids of contacts",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "qui",
+                                    "description": "Search term for contact name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "biz_name",
+                                    "value": "qui",
+                                    "description": "Search term for contact's business name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "mobile_num",
+                                    "value": "3",
+                                    "description": "Search term for contact's mobile number",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_id",
+                                    "value": "ea",
+                                    "description": "Search term for contact's contact_id. Ex(CO0005)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by",
+                                    "value": "nam",
+                                    "description": "Column name to sort the result, Column: name, supplier_business_name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "direction",
+                                    "value": "molestias",
+                                    "description": "Direction to sort the result, Direction: desc, asc",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Product management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/product",
+                            "query": [
+                                {
+                                    "key": "order_by",
+                                    "value": "sunt",
+                                    "description": "Values: product_name or newest",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_direction",
+                                    "value": "voluptate",
+                                    "description": "Values: asc or desc",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "brand_id",
+                                    "value": "assumenda",
+                                    "description": "comma separated ids of one or multiple brands",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "corporis",
+                                    "description": "comma separated ids of one or multiple category",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sub_category_id",
+                                    "value": "voluptas",
+                                    "description": "comma separated ids of one or multiple sub-category",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "selling_price_group",
+                                    "value": "nobis",
+                                    "description": "(1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "send_lot_detail",
+                                    "value": "magnam",
+                                    "description": "Send lot details in each variation location details(1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "adipisci",
+                                    "description": "Search term for product name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sku",
+                                    "value": "perferendis",
+                                    "description": "Search term for product sku",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified product",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/product\/:product",
+                            "query": [
+                                {
+                                    "key": "selling_price_group",
+                                    "value": "natus",
+                                    "description": "(1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "send_lot_detail",
+                                    "value": "assumenda",
+                                    "description": "Send lot details in each variation location details(1, 0)",
+                                    "disabled": false
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "product",
+                                    "key": "product",
+                                    "value": "1",
+                                    "description": "comma separated ids of products"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List Selling Price Group",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/selling-price-group",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List Variations",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/variation\/:id",
+                            "query": [
+                                {
+                                    "key": "product_id",
+                                    "value": "est",
+                                    "description": "Filter by comma separated products ids",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "brand_id",
+                                    "value": "perspiciatis",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "rerum",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sub_category_id",
+                                    "value": "et",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "not_for_selling",
+                                    "value": "ducimus",
+                                    "description": "Values: 0 or 1",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "fugiat",
+                                    "description": "Search term for product name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sku",
+                                    "value": "quisquam",
+                                    "description": "Search term for product sku",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sales management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List sells",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/sell",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_id",
+                                    "value": "fuga",
+                                    "description": "id of the customer",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "payment_status",
+                                    "value": "due%2Cpartial",
+                                    "description": "Comma separated values of payment statuses. Available values due, partial, paid, overdue",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "user_id",
+                                    "value": "nostrum",
+                                    "description": "id of the user who created the sale",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "service_staff_id",
+                                    "value": "est",
+                                    "description": "id of the service staff assigned with the sale",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "shipping_status",
+                                    "value": "ordered",
+                                    "description": "Shipping Status of the sale ('ordered', 'packed', 'shipped', 'delivered', 'cancelled')",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "source",
+                                    "value": "esse",
+                                    "description": "Source of the sale",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "only_subscriptions",
+                                    "value": "magnam",
+                                    "description": "Filter only subcription invoices (1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "send_purchase_details",
+                                    "value": "quasi",
+                                    "description": "Get purchase details of each sell line (1, 0)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order_by_date",
+                                    "value": "desc",
+                                    "description": "Sort sell list by date ('asc', 'desc')",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Total records per page. default: 10, Set -1 for no pagination",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create sell",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/sell",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sells\": [\n        {\n            \"location_id\": 1,\n            \"contact_id\": 12,\n            \"transaction_date\": \"2020-07-22 15:48:29\",\n            \"invoice_no\": \"deleniti\",\n            \"source\": \"api, phone, woocommerce\",\n            \"status\": \"final\",\n            \"sub_status\": \"null\",\n            \"is_quotation\": true,\n            \"tax_rate_id\": 13,\n            \"discount_amount\": 10,\n            \"discount_type\": \"fixed\",\n            \"sale_note\": \"molestiae\",\n            \"staff_note\": \"atque\",\n            \"commission_agent\": 7,\n            \"shipping_details\": \"Express Delivery\",\n            \"shipping_address\": \"sed\",\n            \"shipping_status\": \"ordered\",\n            \"delivered_to\": \"'Mr robin'\",\n            \"shipping_charges\": 10,\n            \"packing_charge\": 10,\n            \"exchange_rate\": 1,\n            \"selling_price_group_id\": 6,\n            \"pay_term_number\": 3,\n            \"pay_term_type\": \"months\",\n            \"is_suspend\": false,\n            \"is_recurring\": 0,\n            \"recur_interval\": 3,\n            \"recur_interval_type\": \"months\",\n            \"subscription_repeat_on\": 15,\n            \"subscription_no\": \"tenetur\",\n            \"recur_repetitions\": 10,\n            \"rp_redeemed\": 6,\n            \"rp_redeemed_amount\": 13.5,\n            \"types_of_service_id\": 3,\n            \"service_custom_field_1\": \"molestiae\",\n            \"service_custom_field_2\": \"quibusdam\",\n            \"service_custom_field_3\": \"enim\",\n            \"service_custom_field_4\": \"ut\",\n            \"service_custom_field_5\": \"rerum\",\n            \"service_custom_field_6\": \"a\",\n            \"round_off_amount\": 24.9816615,\n            \"table_id\": 11,\n            \"service_staff_id\": 5,\n            \"change_return\": 0,\n            \"products\": [\n                {\n                    \"product_id\": 17,\n                    \"variation_id\": 58,\n                    \"quantity\": 1,\n                    \"unit_price\": 437.5,\n                    \"tax_rate_id\": 0,\n                    \"discount_amount\": 0,\n                    \"discount_type\": \"percentage\",\n                    \"sub_unit_id\": 10,\n                    \"note\": \"ab\"\n                }\n            ],\n            \"payments\": [\n                {\n                    \"amount\": 453.13,\n                    \"method\": \"cash\",\n                    \"account_id\": 9,\n                    \"card_number\": \"in\",\n                    \"card_holder_name\": \"consectetur\",\n                    \"card_transaction_number\": \"repudiandae\",\n                    \"card_type\": \"ad\",\n                    \"card_month\": \"officiis\",\n                    \"card_year\": \"vitae\",\n                    \"card_security\": \"aperiam\",\n                    \"transaction_no_1\": \"doloremque\",\n                    \"transaction_no_2\": \"excepturi\",\n                    \"transaction_no_3\": \"rerum\",\n                    \"bank_account_number\": \"excepturi\",\n                    \"note\": \"aut\",\n                    \"cheque_number\": \"consequatur\"\n                }\n            ]\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified sell",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/sell\/:sell",
+                            "query": [
+                                {
+                                    "key": "send_purchase_details",
+                                    "value": "et",
+                                    "description": "Get purchase details of each sell line (1, 0)",
+                                    "disabled": false
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "sell",
+                                    "key": "sell",
+                                    "value": "55",
+                                    "description": "comma separated ids of the sells"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update sell",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/sell\/:sell",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "sell",
+                                    "key": "sell",
+                                    "value": "6",
+                                    "description": "id of sell to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"contact_id\": 19,\n    \"transaction_date\": \"2020-5-7 15:20:22\",\n    \"status\": \"final\",\n    \"sub_status\": \"null\",\n    \"is_quotation\": true,\n    \"tax_rate_id\": 6,\n    \"discount_amount\": 10,\n    \"discount_type\": \"fixed\",\n    \"sale_note\": \"aut\",\n    \"source\": \"eaque\",\n    \"staff_note\": \"harum\",\n    \"is_suspend\": false,\n    \"commission_agent\": 1,\n    \"shipping_details\": \"Express Delivery\",\n    \"shipping_address\": \"est\",\n    \"shipping_status\": \"ordered\",\n    \"delivered_to\": \"Mr Robin\",\n    \"shipping_charges\": 10,\n    \"packing_charge\": 10,\n    \"exchange_rate\": 1,\n    \"selling_price_group_id\": 11,\n    \"pay_term_number\": 7,\n    \"pay_term_type\": \"months\",\n    \"is_recurring\": 0,\n    \"recur_interval\": 4,\n    \"recur_interval_type\": \"days\",\n    \"subscription_repeat_on\": 7,\n    \"subscription_no\": \"velit\",\n    \"recur_repetitions\": 8,\n    \"rp_redeemed\": 16,\n    \"rp_redeemed_amount\": 13.5,\n    \"types_of_service_id\": 7,\n    \"service_custom_field_1\": \"nesciunt\",\n    \"service_custom_field_2\": \"sed\",\n    \"service_custom_field_3\": \"commodi\",\n    \"service_custom_field_4\": \"ad\",\n    \"service_custom_field_5\": \"et\",\n    \"service_custom_field_6\": \"dolore\",\n    \"round_off_amount\": 17771240.040777,\n    \"table_id\": 18,\n    \"service_staff_id\": 10,\n    \"change_return\": 0,\n    \"change_return_id\": 17,\n    \"products\": [\n        {\n            \"sell_line_id\": 19,\n            \"product_id\": 17,\n            \"variation_id\": 58,\n            \"quantity\": 1,\n            \"unit_price\": 437.5,\n            \"tax_rate_id\": 20,\n            \"discount_amount\": 0,\n            \"discount_type\": \"percentage\",\n            \"sub_unit_id\": 1,\n            \"note\": \"commodi\"\n        }\n    ],\n    \"payments\": [\n        {\n            \"payment_id\": 9,\n            \"amount\": 453.13,\n            \"method\": \"cash\",\n            \"account_id\": 5,\n            \"card_number\": \"totam\",\n            \"card_holder_name\": \"ut\",\n            \"card_transaction_number\": \"mollitia\",\n            \"card_type\": \"quod\",\n            \"card_month\": \"tempore\",\n            \"card_year\": \"et\",\n            \"card_security\": \"et\",\n            \"transaction_no_1\": \"et\",\n            \"transaction_no_2\": \"voluptatem\",\n            \"transaction_no_3\": \"et\",\n            \"note\": \"voluptatum\",\n            \"cheque_number\": \"vitae\",\n            \"bank_account_number\": \"architecto\"\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete Sell",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/sell\/:sell",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "sell",
+                                    "key": "sell",
+                                    "value": "id",
+                                    "description": "id of the sell to be deleted"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Add Sell Return",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/sell-return",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"transaction_id\": 1,\n    \"transaction_date\": \"2020-5-7 15:20:22\",\n    \"invoice_no\": \"rerum\",\n    \"discount_amount\": 10,\n    \"discount_type\": \"fixed\",\n    \"products\": [\n        {\n            \"sell_line_id\": 2,\n            \"quantity\": 1,\n            \"unit_price_inc_tax\": 437.5\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List Sell Return",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/list-sell-return",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update shipping status",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/update-shipping-status",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 2,\n    \"shipping_status\": \"ordered\",\n    \"delivered_to\": \"qui\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Superadmin",
+            "description": "",
+            "item": [
+                {
+                    "name": "If SaaS installed get active subscription details, else return the enabled modules details in package_details",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/active-subscription",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get Superadmin Package List",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/packages",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Table management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List tables",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/table",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "int id of the location",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show the specified table",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/table\/:table",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "table",
+                                    "key": "table",
+                                    "value": "5",
+                                    "description": "comma separated ids of required tables"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Tax management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List taxes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/tax",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified tax",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/tax\/:tax",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "tax",
+                                    "key": "tax",
+                                    "value": "1",
+                                    "description": "comma separated ids of required taxes"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Taxonomy management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List taxonomy",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/taxonomy",
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": "cupiditate",
+                                    "description": "Type of taxonomy (product, device, hrm_department)",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified taxonomy",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/taxonomy\/:taxonomy",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "taxonomy",
+                                    "key": "taxonomy",
+                                    "value": "1",
+                                    "description": "comma separated ids of product categories"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Types of service management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List types of service",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/types-of-service",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified types of service",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/types-of-service\/:types_of_service",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "types_of_service",
+                                    "key": "types_of_service",
+                                    "value": "1",
+                                    "description": "comma separated ids of required types of services"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Unit management",
+            "description": "",
+            "item": [
+                {
+                    "name": "List units",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/unit",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified unit",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/unit\/:unit",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "unit",
+                                    "key": "unit",
+                                    "value": "1",
+                                    "description": "comma separated ids of the units"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get the loggedin user details.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/user\/loggedin",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Register User",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/user-registration",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"surname\": \"animi\",\n    \"first_name\": \"expedita\",\n    \"last_name\": \"voluptatem\",\n    \"email\": \"id\",\n    \"is_active\": \"quod\",\n    \"user_type\": \"ea\",\n    \"crm_contact_id\": 15,\n    \"allow_login\": false,\n    \"username\": \"quia\",\n    \"password\": \"rem\",\n    \"role\": 6,\n    \"access_all_locations\": true,\n    \"location_permissions\": [],\n    \"cmmsn_percent\": \"alias\",\n    \"max_sales_discount_percent\": \"enim\",\n    \"selected_contacts\": true,\n    \"selected_contact_ids\": [],\n    \"dob\": \"illo\",\n    \"gender\": \"omnis\",\n    \"marital_status\": \"maxime\",\n    \"blood_group\": \"esse\",\n    \"contact_number\": \"eaque\",\n    \"alt_number\": \"est\",\n    \"family_number\": \"velit\",\n    \"fb_link\": \"modi\",\n    \"twitter_link\": \"est\",\n    \"social_media_1\": \"placeat\",\n    \"social_media_2\": \"earum\",\n    \"custom_field_1\": \"non\",\n    \"custom_field_2\": \"repellat\",\n    \"custom_field_3\": \"ut\",\n    \"custom_field_4\": \"nobis\",\n    \"guardian_name\": \"autem\",\n    \"id_proof_name\": \"deserunt\",\n    \"id_proof_number\": \"odio\",\n    \"permanent_address\": \"laudantium\",\n    \"current_address\": \"eveniet\",\n    \"bank_details\": [\n        {\n            \"account_holder_name\": \"earum\",\n            \"account_number\": \"sed\",\n            \"bank_name\": \"inventore\",\n            \"bank_code\": \"quidem\",\n            \"branch\": \"cupiditate\",\n            \"tax_payer_id\": \"id\"\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/user",
+                            "query": [
+                                {
+                                    "key": "service_staff",
+                                    "value": "porro",
+                                    "description": "boolean Filter service staffs from users list (0, 1)",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the specified user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/user\/:user",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "1",
+                                    "description": "comma separated ids of the required users"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update user password.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/update-password",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"current_password\": \"totam\",\n    \"new_password\": \"quo\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Recover forgotten password.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/forget-password",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"id\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "List payment accounts",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/payment-accounts",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "List payment methods",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/payment-methods",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get business details",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/business-details",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get profit and loss report",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/profit-loss-report",
+                            "query": [
+                                {
+                                    "key": "location_id",
+                                    "value": "1",
+                                    "description": "optional id of the location",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "2018-06-25",
+                                    "description": "optional format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2018-06-25",
+                                    "description": "optional format:Y-m-d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "optional id of the user",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get product current stock",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/product-stock-report",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get notifications",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/notifications",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get location details from coordinates",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8000",
+                            "path": "connector\/api\/get-location",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lat\": \"41.40338\",\n    \"lon\": \"2.17403\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
