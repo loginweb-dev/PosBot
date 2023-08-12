@@ -1,6 +1,6 @@
-## Sobre Ultimate POS
+## Sobre PosBot v1.0
 
-Un Sistema POS (punto de venta) es un sistema de software de computadora que los minoristas usan para llevar el seguimiento de los pedidos, realizar transacciones, manejar inventarios y registrar datos de clientes. Estos sistemas suelen ser utilizados en tiendas minoristas, restaurantes, hoteles, bares y otros establecimientos comerciales. Los sistemas varían en tamaño y complejidad, desde sistemas de tarjetas de crédito sencillos hasta programación
+El Sistema PposBot es un sistema web para gestionar ventas en internet que incluye un agente de ventas (un chatbot para whatsapp), el sistema pueder ser implementado en, restaurantes, hoteles, bares y otros establecimientos comerciales. Los sistemas varían en tamaño y complejidad, desde sistemas de tarjetas de crédito sencillos hasta programación. mas info al 72823861
 
 
 ## Installation & Documentation

@@ -161,33 +161,33 @@
         </div>
         <div class="clearfix"></div>
         <div class="col-sm-12">
-            <h4>@lang('lang_v1.labels_for_location_custom_fields'):</h4>
+            <h4>@lang('lang_v1.labels_for_location_custom_fields') & chatbot</h4>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <div class="form-group">
                 {!! Form::label('location_custom_field_1_label', __('lang_v1.location_custom_field1')); !!}
-                {!! Form::text('custom_labels[location][custom_field_1]', !empty($custom_labels['location']['custom_field_1']) ? $custom_labels['location']['custom_field_1'] : null, 
+                {!! Form::textarea('custom_labels[location][custom_field_1]', !empty($custom_labels['location']['custom_field_1']) ? $custom_labels['location']['custom_field_1'] : null, 
                     ['class' => 'form-control', 'id' => 'location_custom_field_1_label']); !!}
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <div class="form-group">
                 {!! Form::label('location_custom_field_2_label', __('lang_v1.location_custom_field2')); !!}
-                {!! Form::text('custom_labels[location][custom_field_2]', !empty($custom_labels['location']['custom_field_2']) ? $custom_labels['location']['custom_field_2'] : null, 
+                {!! Form::textarea('custom_labels[location][custom_field_2]', !empty($custom_labels['location']['custom_field_2']) ? $custom_labels['location']['custom_field_2'] : null, 
                     ['class' => 'form-control', 'id' => 'location_custom_field_2_label']); !!}
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <div class="form-group">
                 {!! Form::label('location_custom_field_3_label', __('lang_v1.location_custom_field3')); !!}
-                {!! Form::text('custom_labels[location][custom_field_3]', !empty($custom_labels['location']['custom_field_3']) ? $custom_labels['location']['custom_field_3'] : null, 
+                {!! Form::textarea('custom_labels[location][custom_field_3]', !empty($custom_labels['location']['custom_field_3']) ? $custom_labels['location']['custom_field_3'] : null, 
                     ['class' => 'form-control', 'id' => 'location_custom_field_3_label']); !!}
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <div class="form-group">
                 {!! Form::label('location_custom_field_4_label', __('lang_v1.location_custom_field4')); !!}
-                {!! Form::text('custom_labels[location][custom_field_4]', !empty($custom_labels['location']['custom_field_4']) ? $custom_labels['location']['custom_field_4'] : null, 
+                {!! Form::textarea('custom_labels[location][custom_field_4]', !empty($custom_labels['location']['custom_field_4']) ? $custom_labels['location']['custom_field_4'] : null, 
                     ['class' => 'form-control', 'id' => 'location_custom_field_4_label']); !!}
             </div>
         </div>
@@ -228,6 +228,7 @@
             <h4>@lang('lang_v1.labels_for_purchase_custom_fields'):</h4>
         </div>
         <div class="col-sm-6">
+           
             <div class="form-group">
                 {!! Form::label('purchase_custom_field_1_label', __('lang_v1.product_custom_field1')); !!}
                 <div class="input-group">
