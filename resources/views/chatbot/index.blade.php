@@ -14,8 +14,7 @@
 <section class="content">
     {{-- @if (count($miledas) > 0)          --}}
     <!-- Nav tabs -->
-    <h3>Whatsapp: {{$milocation[0]->mobile}}</h3>
-    <h3>Sucursal:  {{$milocation[0]->name}}</h3>
+    <h4>Perfil: {{ $username }} | Whatsapp: {{ $milocation[0]->mobile }} | Sucursal:  {{ $milocation[0]->name }}</h4>
    
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#estado" aria-controls="eastado" role="tab" data-toggle="tab">Inicio</a></li>
@@ -33,19 +32,21 @@
                     @else
                         <img src="" class="img-responsive" alt="">   
                     @endif
-                                            
+                         
                 </div>
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <label for="">Telefono</label>
-                        <input type="number" id="phone" class="form-control" value="59172823861">
+                        <label for="">Telefono o Invitacion</label>
+                        <input type="text" id="phone" class="form-control" value="59172823861">
                     </div>
                     <div class="form-group">
                         <label for="">Mensaje</label>
-                        <textarea rows="4" id="message" class="form-control">Mensaje de prueba</textarea>
+                        <textarea rows="6" id="message" class="form-control">Mensaje de prueba</textarea>
                     </div>
-                    <a href="#" onclick="misend()"  class="btn btn-primary">Enviar mensaje (testing)</a>
-                    <a href="/business-location"  class="btn btn-success">Preguntas y Respuestas</a>                    
+                    <a href="#" onclick="misend()"  class="btn btn-primary">Enviar mensaje</a>
+                    <a href="#" onclick="migroup()"  class="btn btn-primary">Info grupo</a>
+                    <a href="/business/settings"  class="btn btn-success">Preguntas</a> 
+                    <a href="/business-location"  class="btn btn-success">Respuestas</a> 
                 </div>                                       
             </div>
         </div>
@@ -133,28 +134,43 @@
 @section('javascript')
 
 <script>
-       async function misend() {
-        
-        try {            
-            var miurl = "{{ env('CB_URL').'/send/percyalvarez2023' }}"
-            var midata = {
-                phone: $("#phone").val(),
-                message: $("#message").val()
-            }
-            console.log(midata)
-            var midata = await axios.post(miurl, midata)
-                .catch(function (error) {
-                    console.log(error.message);
-                    if (error.message) {
-                        toastr.error("Error en el chatbot, escanea el QR")
-                    }else{
-                        toastr.info("mensaje enviado...")
-                    }                    
-                })
-
-        } catch (error) {
-            console.log(error)        
+    async function misend() {    
+        var miurl = "{{ env('CB_URL').$username.'/message' }}"
+        var midata = {
+            phone: $("#phone").val(),
+            message: $("#message").val()
         }
+        await axios.post(miurl, midata)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                if (error.message) {
+                    toastr.error("Error en el chatbot, escanea el QR")
+                }else{
+                    toastr.info("mensaje enviado...")
+                }                    
+            })
     }
+    async function migroup() {    
+        var miurl = "{{ env('CB_URL').$username.'/group' }}"
+        var midata = {
+            invitacion: $("#phone").val()
+        }
+        await axios.post(miurl, midata)
+            .then(function (response) {
+                    console.log(response.data);
+                    
+                    $("#message").val(JSON.stringify(response.data))
+                })
+            .catch(function (error) {
+                if (error.message) {
+                    toastr.error("Error en el chatbot, escanea el QR")
+                }else{
+                    toastr.info("Obteniendo datos del grupo...")
+                }                    
+            })
+    }
+    
 </script>
 @endsection

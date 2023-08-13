@@ -49,7 +49,7 @@ const flujoOpcion01 = addKeyword(['1', '2', '3', '4'])
 
 const flujoWelcome01 = addKeyword(EVENTS.WELCOME)
     .addAnswer(
-        '*Hola 🙌, soy un 🤖, te puedo ayudar con estas opciones:*',
+        '*Hola 🙌, soy un bot🤖, te puedo ayudar con las siguientes opciones:*',
         null,
         async (ctx, {flowDynamic}) => {
             var misession = await axios.post(process.env.APP_URL+'/api/setting', {
@@ -61,7 +61,7 @@ const flujoWelcome01 = addKeyword(EVENTS.WELCOME)
             misms +=  '\n2.- '+milabel.location.custom_field_2
             misms +=  '\n3.- '+milabel.location.custom_field_3
             misms +=  '\n4.- '+milabel.location.custom_field_4
-            misms +=  '\n\n*envia un numero para ingresar al menu*'            
+            misms +=  '\n\n*Envia un numero para ingresar al menu (1, 2, 3 ..)*'            
             return await flowDynamic([{ body: misms }])
         },
         [flujoOpcion01]
@@ -113,17 +113,28 @@ app.get('/', async (req, res) => {
     res.send('CHATBOT ESTA LISTO EN EL PUERTO:'+process.env.CB_PORT);
 });
 
+
 //percyalvarez2023
-app.post('/send/percyalvarez2023', async (req, res) => {
+app.post('/percyalvarez2023/message', async (req, res) => {
     var phone = req.body.phone
     var message = req.body.message
     try {
         adapterProvider1.vendor.sendMessage(phone+'@s.whatsapp.net', { text: message })
-
+        res.send(message)
     } catch (error) {
         console.log(error)
-    }
-    res.send(req.body)
+        res.send(error)
+    }    
 });
-
-// {"payments":{"custom_pay_1":null,"custom_pay_2":null,"custom_pay_3":null,"custom_pay_4":null,"custom_pay_5":null,"custom_pay_6":null,"custom_pay_7":null},"contact":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null,"custom_field_5":null,"custom_field_6":null,"custom_field_7":null,"custom_field_8":null,"custom_field_9":null,"custom_field_10":null},"product":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null},"location":{"custom_field_1":"Informacion sobre nosotros","custom_field_2":"Todos nuestros servicios","custom_field_3":"Promociones y descuentos","custom_field_4":"Chatear con agente de ventas"},"user":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null},"purchase":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null},"purchase_shipping":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null,"custom_field_5":null},"sell":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null},"shipping":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null,"custom_field_5":null},"types_of_service":{"custom_field_1":null,"custom_field_2":null,"custom_field_3":null,"custom_field_4":null,"custom_field_5":null,"custom_field_6":null}}
+app.post('/percyalvarez2023/group', async (req, res) => {
+    console.log(req.body.invitacion)
+    try {
+        console.log(req.body.invitacion)
+        const response = await adapterProvider1.vendor.groupGetInviteInfo(req.body.invitacion)
+        console.log(response)
+        res.send(response);
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+});
