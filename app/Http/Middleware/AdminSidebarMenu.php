@@ -31,39 +31,9 @@ class AdminSidebarMenu
             //Home
             $menu->url(action('HomeController@index'), __('home.home'), ['icon' => 'fa fas fa-tachometer-alt', 'active' => request()->segment(1) == 'home'])->order(5);
 
-            //User management dropdown
-            if (auth()->user()->can('user.view') || auth()->user()->can('user.create') || auth()->user()->can('roles.view')) {
-                $menu->dropdown(
-                    __('user.user_management'),
-                    function ($sub) {
-                        if (auth()->user()->can('user.view')) {
-                            $sub->url(
-                                action('ManageUserController@index'),
-                                __('user.users'),
-                                ['icon' => 'fa fas fa-user', 'active' => request()->segment(1) == 'users']
-                            );
-                        }
-                        if (auth()->user()->can('roles.view')) {
-                            $sub->url(
-                                action('RoleController@index'),
-                                __('user.roles'),
-                                ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'roles']
-                            );
-                        }
-                        if (auth()->user()->can('user.create')) {
-                            $sub->url(
-                                action('SalesCommissionAgentController@index'),
-                                __('lang_v1.sales_commission_agents'),
-                                ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'sales-commission-agents']
-                            );
-                        }
-                    },
-                    ['icon' => 'fa fas fa-users']
-                )->order(10);
-            }
-            //gosystem
+            //gosystem y chatbot
             $menu->dropdown(
-                "goSystem",
+                "Chat & Siat",
                 function ($sub) {
                         $sub->url(
                             action('HomeController@chatbot'),
@@ -72,7 +42,7 @@ class AdminSidebarMenu
                         );
                         $sub->url(
                             action('HomeController@siat'),
-                            "Siat",
+                            "Facturacion",
                             ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'siat']
                         );
                 },
@@ -248,6 +218,7 @@ class AdminSidebarMenu
                     ['icon' => 'fa fas fa-arrow-circle-down', 'id' => 'tour_step6']
                 )->order(25);
             }
+
             //Sell dropdown
             if ($is_admin || auth()->user()->hasAnyPermission(['sell.view', 'sell.create', 'direct_sell.access', 'view_own_sell_only', 'view_commission_agent_sell', 'access_shipping', 'access_own_shipping', 'access_commission_agent_shipping', 'access_sell_return', 'direct_sell.view', 'direct_sell.update', 'access_own_sell_return']) ) {
                 $menu->dropdown(
@@ -443,6 +414,7 @@ class AdminSidebarMenu
                     ['icon' => 'fa fas fa-minus-circle']
                 )->order(45);
             }
+
             //Accounts dropdown
             if (auth()->user()->can('account.access') && in_array('account', $enabled_modules)) {
                 $menu->dropdown(
@@ -678,9 +650,9 @@ class AdminSidebarMenu
             }
 
             //Notification template menu
-            if (auth()->user()->can('send_notifications')) {
-                $menu->url(action('NotificationTemplateController@index'), __('lang_v1.notification_templates'), ['icon' => 'fa fas fa-envelope', 'active' => request()->segment(1) == 'notification-templates'])->order(80);
-            }
+            // if (auth()->user()->can('send_notifications')) {
+            //     $menu->url(action('NotificationTemplateController@index'), __('lang_v1.notification_templates'), ['icon' => 'fa fas fa-envelope', 'active' => request()->segment(1) == 'notification-templates'])->order(80);
+            // }
 
             //Settings Dropdown
             if (auth()->user()->can('business_settings.access') ||
@@ -762,10 +734,36 @@ class AdminSidebarMenu
                 )->order(85);
             }
 
-   
-            //$menu->url(action('HomeController@index'), 'Chatbot2', ['icon' => 'fa fas fa-hdd', 'active' => 1])->order(100);
-            //$menu->url(action('HomeController@index'), __('home.home'), ['icon' => 'fa fas fa-tachometer-alt', 'active' => request()->segment(1) == 'home2'])->order(10);
-
+            //User management dropdown
+            if (auth()->user()->can('user.view') || auth()->user()->can('user.create') || auth()->user()->can('roles.view')) {
+                $menu->dropdown(
+                    __('user.user_management'),
+                    function ($sub) {
+                        if (auth()->user()->can('user.view')) {
+                            $sub->url(
+                                action('ManageUserController@index'),
+                                __('user.users'),
+                                ['icon' => 'fa fas fa-user', 'active' => request()->segment(1) == 'users']
+                            );
+                        }
+                        if (auth()->user()->can('roles.view')) {
+                            $sub->url(
+                                action('RoleController@index'),
+                                __('user.roles'),
+                                ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'roles']
+                            );
+                        }
+                        if (auth()->user()->can('user.create')) {
+                            $sub->url(
+                                action('SalesCommissionAgentController@index'),
+                                __('lang_v1.sales_commission_agents'),
+                                ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'sales-commission-agents']
+                            );
+                        }
+                    },
+                    ['icon' => 'fa fas fa-users']
+                )->order(120);
+            }
 
         });
         

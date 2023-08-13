@@ -115,26 +115,34 @@ app.get('/', async (req, res) => {
 
 
 //percyalvarez2023
-app.post('/percyalvarez2023/message', async (req, res) => {
-    var phone = req.body.phone
-    var message = req.body.message
-    try {
-        adapterProvider1.vendor.sendMessage(phone+'@s.whatsapp.net', { text: message })
-        res.send(message)
-    } catch (error) {
-        console.log(error)
-        res.send(error)
-    }    
-});
-app.post('/percyalvarez2023/group', async (req, res) => {
-    console.log(req.body.invitacion)
-    try {
-        console.log(req.body.invitacion)
-        const response = await adapterProvider1.vendor.groupGetInviteInfo(req.body.invitacion)
-        console.log(response)
-        res.send(response);
-    } catch (error) {
-        console.log(error)
-        res.send(error)
+app.post('/percyalvarez2023', async (req, res) => {
+    switch (req.body.type) {
+        case "group_info":
+            try {
+                const response = await adapterProvider1.vendor.groupGetInviteInfo(req.body.phone)
+                res.send(response);
+            } catch (error) {
+                res.send(error)
+            }
+            break;
+        case "message_phone":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { text: req.body.message })
+                res.send(req.body)
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_group":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@g.us', { text: req.body.message })
+                res.send(req.body)
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        default:
+            break;
     }
+    // res.send("percyalvarez2023")
 });

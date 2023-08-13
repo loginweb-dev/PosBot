@@ -1,8 +1,6 @@
 /node_modules
 /package-lock.json
 /public/storage
-/public/base-baileys-mysql/node_modules
-/public/base-baileys-mysql/package-lock.json
 /storage/*.key
 /storage/logs/
 /storage/framework/cache/
@@ -14,5 +12,9 @@
 /public/uploads/invoice_logos/
 /public/uploads/img/
 
+/public/base-baileys-mysql/node_modules
+/public/base-baileys-mysql/package-lock.json
+/public/base-baileys-mysql/baileys.log
+/public/base-baileys-mysql/core.class.log
 /public/base-baileys-mysql/percyalvarez2023_sessions
 /public/base-baileys-mysql/percyalvarez2023.qr.png
