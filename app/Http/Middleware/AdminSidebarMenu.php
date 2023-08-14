@@ -37,9 +37,14 @@ class AdminSidebarMenu
                 function ($sub) {
                         $sub->url(
                             action('HomeController@chatbot'),
-                            "Chatbot",
+                            "Chatbots",
                             ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'michatbot']
                         );
+                        // $sub->url(
+                        //     action('HomeController@multimedia'),
+                        //     "Multimedia",
+                        //     ['icon' => 'fa fas fa-file', 'active' => request()->segment(1) == 'multimedia']
+                        // );
                         $sub->url(
                             action('HomeController@siat'),
                             "Facturacion",

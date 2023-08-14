@@ -232,7 +232,13 @@ class HomeController extends Controller
 
         return view("sale_pos.siat", compact("misdatos", "atividades", "is_admin", "products", "unidades", "pagos", "mifecha", "leyendas"));
      }
-
+     
+     public function multimedia()
+     {
+        $business_id = request()->session()->get('user.business_id');
+        $facturas = Transaction::where("business_id", $business_id)->where("type", "sell")->orderBy("created_at", "desc")->with("contact")->get();
+        return view("chatbot.media");
+     }
      
     public function index()
     {

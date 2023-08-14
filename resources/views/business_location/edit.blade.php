@@ -18,6 +18,45 @@
           </div>
         </div>
         <div class="clearfix"></div>
+        @php
+          $custom_labels = json_decode(session('business.custom_labels'), true);
+          $location_custom_field1 = !empty($custom_labels['location']['custom_field_1']) ? $custom_labels['location']['custom_field_1'] : __('lang_v1.location_custom_field1');
+          $location_custom_field2 = !empty($custom_labels['location']['custom_field_2']) ? $custom_labels['location']['custom_field_2'] : __('lang_v1.location_custom_field2');
+          $location_custom_field3 = !empty($custom_labels['location']['custom_field_3']) ? $custom_labels['location']['custom_field_3'] : __('lang_v1.location_custom_field3');
+          $location_custom_field4 = !empty($custom_labels['location']['custom_field_4']) ? $custom_labels['location']['custom_field_4'] : __('lang_v1.location_custom_field4');
+        @endphp
+      <div class="col-sm-12">
+        <h2 class="text-center">Respuestas rapidas para el chatbot</h2>
+      </div>
+        <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('custom_field1', $location_custom_field1 . ':') !!}
+            {!! Form::textarea('custom_field1', $location->custom_field1, ['class' => 'form-control', 
+                'placeholder' => $location_custom_field1]); !!}
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('custom_field2', $location_custom_field2 . ':') !!}
+            {!! Form::textarea('custom_field2', $location->custom_field2, ['class' => 'form-control', 
+                'placeholder' => $location_custom_field2]); !!}
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('custom_field3', $location_custom_field3 . ':') !!}
+            {!! Form::textarea('custom_field3', $location->custom_field3, ['class' => 'form-control', 
+                'placeholder' => $location_custom_field3]); !!}
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+            {!! Form::label('custom_field4', $location_custom_field4 . ':') !!}
+            {!! Form::textarea('custom_field4', $location->custom_field4, ['class' => 'form-control', 
+                'placeholder' => $location_custom_field4]); !!}
+        </div>
+      </div>
+        <div class="clearfix"></div>
         <div class="col-sm-6">
           <div class="form-group">
             {!! Form::label('location_id', __( 'lang_v1.location_id' ) . ':') !!}
@@ -111,42 +150,7 @@
               'placeholder' => __('messages.please_select')]); !!}
           </div>
         </div>
-        <div class="clearfix"></div>
-        @php
-          $custom_labels = json_decode(session('business.custom_labels'), true);
-          $location_custom_field1 = !empty($custom_labels['location']['custom_field_1']) ? $custom_labels['location']['custom_field_1'] : __('lang_v1.location_custom_field1');
-          $location_custom_field2 = !empty($custom_labels['location']['custom_field_2']) ? $custom_labels['location']['custom_field_2'] : __('lang_v1.location_custom_field2');
-          $location_custom_field3 = !empty($custom_labels['location']['custom_field_3']) ? $custom_labels['location']['custom_field_3'] : __('lang_v1.location_custom_field3');
-          $location_custom_field4 = !empty($custom_labels['location']['custom_field_4']) ? $custom_labels['location']['custom_field_4'] : __('lang_v1.location_custom_field4');
-        @endphp
-        <div class="col-sm-6">
-        <div class="form-group">
-            {!! Form::label('custom_field1', $location_custom_field1 . ':') !!}
-            {!! Form::textarea('custom_field1', $location->custom_field1, ['class' => 'form-control', 
-                'placeholder' => $location_custom_field1]); !!}
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-            {!! Form::label('custom_field2', $location_custom_field2 . ':') !!}
-            {!! Form::textarea('custom_field2', $location->custom_field2, ['class' => 'form-control', 
-                'placeholder' => $location_custom_field2]); !!}
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-            {!! Form::label('custom_field3', $location_custom_field3 . ':') !!}
-            {!! Form::textarea('custom_field3', $location->custom_field3, ['class' => 'form-control', 
-                'placeholder' => $location_custom_field3]); !!}
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-            {!! Form::label('custom_field4', $location_custom_field4 . ':') !!}
-            {!! Form::textarea('custom_field4', $location->custom_field4, ['class' => 'form-control', 
-                'placeholder' => $location_custom_field4]); !!}
-        </div>
-      </div>
+
       <div class="clearfix"></div>
       <hr>
       <div class="col-sm-12">
