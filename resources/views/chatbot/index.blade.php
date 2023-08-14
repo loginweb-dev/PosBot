@@ -54,19 +54,26 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Telefono, grupo o invitacion</label>
-                                    <input type="text" id="phone" class="form-control" value="">
-                                    
+                                    <input type="text" id="phone" class="form-control" value="" placeholder="ingresa el id">                                    
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Mensaje</label>
-                                    <textarea rows="6" id="message" class="form-control"></textarea>     
+                                    <label for="">Mensaje de texto</label>
+                                    <textarea rows="6" id="message" class="form-control" placeholder="ingresa en texto"></textarea>     
                                 </div>
-                       
+                                <div class="form-group">
+                                    <label for="">Multimedia | Imagenes, videos y audios</label>
+                                    <input type="text" id="multimedia" class="form-control" value="" placeholder="ingresa el link">                                    
+                                </div>
                             </div>  
-                            <div class="col-sm-12 form-group">
-                                <a href="#" onclick="misend('message_phone')"  class="btn btn-primary">Enviar sms</a>
-                                <a href="#" onclick="misend('message_group')"  class="btn btn-warning">Enviar grupo</a>
+                            <div class="col-sm-12 form-group text-center">
+                                <a href="#" onclick="misend('message_text')"  class="btn btn-primary">Enviar text</a>
+                                <a href="#" onclick="misend('message_image')"  class="btn btn-primary">Enviar image</a>
+                                <a href="#" onclick="misend('message_group_text')"  class="btn btn-warning">Enviar text</a>
+                                <a href="#" onclick="misend('message_group_image')"  class="btn btn-warning">Enviar image</a>
                                 <a href="#" onclick="misend('group_info')"  class="btn btn-warning">Info grupo</a>
+                                <p>Los botonos azules son para enviar a otro whatsapp y los naranja para enviar a grupos</p>
+                            </div>        
+                            <div class="col-sm-12 form-group text-center">
                                 <a href="/business/settings"  class="btn btn-success">Preguntas</a> 
                                 <a href="/business-location"  class="btn btn-success">Respuestas</a> 
                             </div>                                                            
@@ -174,12 +181,12 @@
             var midata = {
                 phone: $("#phone").val(),
                 message: $("#message").val(),
-                type: mitype
+                type: mitype,
+                multimedia: $("#multimedia").val()
             }
             console.log(midata);
             await axios.post(miurl, midata)
                 .then(function (response) {
-                    console.log(response);
                     toastr.info("mensaje enviado...")
                     $("#message").val(JSON.stringify(response.data))
                 })

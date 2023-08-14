@@ -125,21 +125,44 @@ app.post('/percyalvarez2023', async (req, res) => {
                 res.send(error)
             }
             break;
-        case "message_phone":
+        case "message_text":
             try {
                 adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { text: req.body.message })
-                res.send(req.body)
+                res.send('message_text')
             } catch (error) {
                 res.send(error)
             } 
             break
-        case "message_group":
+        case "message_image":
             try {
-                adapterProvider1.vendor.sendMessage(req.body.phone+'@g.us', { text: req.body.message })
-                res.send(req.body)
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
+                    image: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_image')
             } catch (error) {
                 res.send(error)
             } 
+            break
+        case "message_group_text":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@g.us', { text: req.body.message })
+                res.send('message_group_text')
+            } catch (error) {
+                res.send(error)
+            } 
+        case "message_group_image":
+                try {
+                    adapterProvider1.vendor.sendMessage(req.body.phone+'@g.us', { 
+                        image: {url: req.body.multimedia},
+                        caption: req.body.message,
+                        gifPlayback: true
+                    })
+                    res.send('message_group_image')
+                } catch (error) {
+                    res.send(error)
+                } 
             break
         default:
             break;
