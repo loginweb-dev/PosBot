@@ -227,7 +227,7 @@ app.post('/percyalvarez2023', async (req, res) => {
                     caption: req.body.message,
                     gifPlayback: true
                 })
-                res.send('message_image')
+                res.send('message_video')
             } catch (error) {
                 res.send(error)
             } 
@@ -239,7 +239,7 @@ app.post('/percyalvarez2023', async (req, res) => {
                     caption: req.body.message,
                     gifPlayback: true
                 })
-                res.send('message_image')
+                res.send('message_audio')
             } catch (error) {
                 res.send(error)
             } 
@@ -270,7 +270,7 @@ app.post('/percyalvarez2023', async (req, res) => {
                     caption: req.body.message,
                     gifPlayback: true
                 })
-                res.send('message_group_image')
+                res.send('message_group_video')
             } catch (error) {
                 res.send(error)
             } 
@@ -282,7 +282,7 @@ app.post('/percyalvarez2023', async (req, res) => {
                     caption: req.body.message,
                     gifPlayback: true
                 })
-                res.send('message_group_image')
+                res.send('message_group_audio')
             } catch (error) {
                 res.send(error)
             } 

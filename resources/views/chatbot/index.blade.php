@@ -73,10 +73,10 @@
                             <div class="col-sm-7">
                                 <div class="form-group">
                                     <label for="">Clientes, proveedores y grupos</label>
-                                    <select name="" id="micontacto" class="form-control">
+                                    <select name="" id="micontacto" class="form-control select2">
                                         <option value="">Elije una opcion</option>
                                         @foreach ($miclientes as $item)
-                                        <option value="{{ $item->mobile }}">{{ $item->type }} - {{ $item->mobile }} - {{ $item->supplier_business_name  }} {{ $item->name }}</option>
+                                            <option value="{{ $item->mobile }}">{{ $item->supplier_business_name  }}  {{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -243,12 +243,17 @@
             e.preventDefault();
             
             $("#phone").val(this.value)
+            var misms = $("#res_rap").val()
+            $("#message").val(misms)
         });
 
         $("#res_rap").change(function (e) { 
             e.preventDefault();
             
             $("#message").val(this.value)
+
+            var miphone = $("#micontacto").val()
+            $("#phone").val(miphone)
         });
 
         
