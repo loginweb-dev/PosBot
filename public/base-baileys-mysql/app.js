@@ -86,7 +86,7 @@ const percyalvarez2023 = async () => {
     //leads
     adapterProvider1.on('message', async (ctx) => {
         const {from, body} = ctx
-        var midata = await axios.post(process.env.APP_URL+'/api/leads', {
+        await axios.post(process.env.APP_URL+'/api/leads', {
             phone: from,
             message: body,
             session: process.env.cliente01
@@ -96,6 +96,89 @@ const percyalvarez2023 = async () => {
     
 }
 percyalvarez2023()
+
+
+
+//paulmuiba2023----------------------------------------------------------
+const flujoOpcion02 = addKeyword(['1', '2', '3', '4'])
+    .addAnswer(
+        'Consultando a la base de datos, espere un momento por favor ⏱️',
+        null,
+        async (ctx, {flowDynamic}) => {
+            var misession = await axios.post(process.env.APP_URL+'/api/setting', {
+                username: process.env.cliente02
+            })
+            console.log(ctx)
+            const {from, body} = ctx
+            switch (body) {
+                case '1':
+                    return await flowDynamic([{ body: misession.data.milocation[0].custom_field1 }])
+                    break;
+                case '2':
+                    return await flowDynamic([{ body: misession.data.milocation[0].custom_field2 }])
+                    break;
+                case '3':
+                    return await flowDynamic([{ body: misession.data.milocation[0].custom_field3 }])
+                    break;
+                case '4':
+                    return await flowDynamic([{ body: misession.data.milocation[0].custom_field4 }])
+                    break;            
+                default:
+                    break;
+            }
+        },
+        []
+        )
+
+const flujoWelcome02 = addKeyword(EVENTS.WELCOME)
+    .addAnswer(
+        '*Hola 🙌, soy un bot🤖, te puedo ayudar con las siguientes opciones:*',
+        null,
+        async (ctx, {flowDynamic}) => {
+            var misession = await axios.post(process.env.APP_URL+'/api/setting', {
+                username: process.env.cliente02
+            })
+            console.log(ctx)
+            var milabel = JSON.parse(misession.data.minegocio.business.custom_labels)
+            var misms = '1.- '+milabel.location.custom_field_1
+            misms +=  '\n2.- '+milabel.location.custom_field_2
+            misms +=  '\n3.- '+milabel.location.custom_field_3
+            misms +=  '\n4.- '+milabel.location.custom_field_4
+            misms +=  '\n\n*Envia un numero para ingresar al menu (1, 2, 3 ..)*'            
+            return await flowDynamic([{ body: misms }])
+        },
+        [flujoOpcion02]
+        )
+const adapterProvider2 = createProvider(BaileysProvider, {
+    name: process.env.cliente02
+})
+const paulmuiba2023 = async () => {
+    const adapterDB2 = new MySQLAdapter({
+        host: MYSQL_DB_HOST,
+        user: MYSQL_DB_USER,
+        database: MYSQL_DB_NAME,
+        password: MYSQL_DB_PASSWORD,
+        port: MYSQL_DB_PORT,
+    })
+    const adapterFlow2 = createFlow([flujoWelcome02, flujoOpcion02])
+    createBot({
+        flow: adapterFlow2,
+        provider: adapterProvider2,
+        database: adapterDB2,
+    })
+    //leads
+    adapterProvider2.on('message', async (ctx) => {
+        const {from, body} = ctx
+        await axios.post(process.env.APP_URL+'/api/leads', {
+            phone: from,
+            message: body,
+            session: process.env.cliente02
+        })        
+    })
+
+    
+}
+paulmuiba2023()
 
 
 // api--------------------------------------------------------------------
@@ -114,7 +197,7 @@ app.get('/', async (req, res) => {
 });
 
 
-//percyalvarez2023
+//percyalvarez2023--------------------------------------------------
 app.post('/percyalvarez2023', async (req, res) => {
     switch (req.body.type) {
         case "group_info":
@@ -168,4 +251,60 @@ app.post('/percyalvarez2023', async (req, res) => {
             break;
     }
     // res.send("percyalvarez2023")
+});
+
+//paulmuiba2023------------------------------------------
+app.post('/paulmuiba2023', async (req, res) => {
+    switch (req.body.type) {
+        case "group_info":
+            try {
+                const response = await adapterProvider2.vendor.groupGetInviteInfo(req.body.phone)
+                res.send(response);
+            } catch (error) {
+                res.send(error)
+            }
+            break;
+        case "message_text":
+            try {
+                adapterProvider2.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { text: req.body.message })
+                res.send('message_text')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_image":
+            try {
+                adapterProvider2.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
+                    image: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_group_text":
+            try {
+                adapterProvider2.vendor.sendMessage(req.body.phone+'@g.us', { text: req.body.message })
+                res.send('message_group_text')
+            } catch (error) {
+                res.send(error)
+            } 
+        case "message_group_image":
+                try {
+                    adapterProvider2.vendor.sendMessage(req.body.phone+'@g.us', { 
+                        image: {url: req.body.multimedia},
+                        caption: req.body.message,
+                        gifPlayback: true
+                    })
+                    res.send('message_group_image')
+                } catch (error) {
+                    res.send(error)
+                } 
+            break
+        default:
+            break;
+    }
+    // res.send("paulmuiba2023")
 });

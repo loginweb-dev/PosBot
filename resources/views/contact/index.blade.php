@@ -89,31 +89,36 @@
                             {{-- <th>@lang('business.email')</th> --}}
                             <th>Nit</th>
                             {{-- <th>@lang('contact.pay_term')</th> --}}
-                            <th>Saldo</th>
+                            {{-- <th>Saldo</th> --}}
                             {{-- <th>@lang('lang_v1.advance_balance')</th> --}}
                             {{-- <th>@lang('lang_v1.added_on')</th> --}}
-                            <th>@lang('business.address')</th>
-                            {{-- <th>@lang('contact.mobile')</th> --}}
+                            {{-- <th>@lang('business.address')</th> --}}
+                            {{-- <th>Saldo</th> --}}
+                            <th>@lang('contact.mobile')</th>
+                        
                             {{-- <th>@lang('contact.total_purchase_due')</th> --}}
                             {{-- <th>@lang('lang_v1.total_purchase_return_due')</th> --}}
+                            <th>Grupo</th>
                         @elseif( $type == 'customer')
                             <th>Empresa</th>
                             <th>@lang('user.name')</th>
                             {{-- <th>@lang('business.email')</th> --}}
                             <th>Nit</th>
-                            <th>Credito</th>
+                            {{-- <th>Credito</th> --}}
                             {{-- <th>@lang('contact.pay_term')</th> --}}
-                            <th>Saldo</th>
+                            {{-- <th>Saldo</th> --}}
                             {{-- <th>@lang('lang_v1.advance_balance')</th>
                             <th>@lang('lang_v1.added_on')</th> --}}
-                            @if($reward_enabled)
+                            {{-- @if($reward_enabled) --}}
                                 {{-- <th id="rp_col">{{session('business.rp_name')}}</th> --}}
-                            @endif
-                            {{-- <th>@lang('lang_v1.customer_group')</th> --}}
-                            {{-- <th>@lang('business.address')</th>
-                            <th>@lang('contact.mobile')</th>
-                            <th>@lang('contact.total_sale_due')</th>
+                            {{-- @endif --}}
+                            {{-- <th>@lang('lang_v1.customer_group')</th>
+                            <th>@lang('business.address')</th> --}}
+                            {{-- <th>Grupo</th> --}}
+                            <th>@lang('contact.mobile')</th>                            
+                             {{--<th>@lang('contact.total_sale_due')</th>
                             <th>@lang('lang_v1.total_sell_return_due')</th> --}}
+                            <th>Grupo</th
                         @endif
                         {{-- @php
                             $custom_labels = json_decode(session('business.custom_labels'), true);
