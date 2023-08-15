@@ -58,7 +58,12 @@
                                 <div class="form-group">
                                     <label for="">Escanea la imagen con tu whatsapp (como whatsapp web)</label>
                                     @if ($username == "percyalvarez2023")
+
                                         <img src="{{ asset('base-baileys-mysql/percyalvarez2023.qr.png') }}" class="img-responsive" alt="">   
+                                    @elseif ($username == "paulmuiba2023")
+                                        <img src="{{ asset('base-baileys-mysql/paulmuiba2023.qr.png') }}" class="img-responsive" alt="">
+                                    @elseif ($username == "stevenkenny7269")
+                                        <img src="{{ asset('base-baileys-mysql/stevenkenny7269.qr.png') }}" class="img-responsive" alt="">
                                     @else
                                         <img src="" class="img-responsive" alt="">   
                                     @endif      
@@ -85,19 +90,23 @@
                                 </div>
                  
                             </div>  
-                            <div class="col-sm-12 form-group text-center">
+                            <div class="col-sm-12 form-group text-center">                                
                                 <a href="#" onclick="misend('message_text')"  class="btn btn-primary">Enviar text</a>
                                 <a href="#" onclick="misend('message_image')"  class="btn btn-primary">Enviar image</a>
+                                <a href="#" onclick="misend('message_video')"  class="btn btn-primary">Enviar video</a>
+                                <a href="#" onclick="misend('message_audio')"  class="btn btn-primary">Enviar audio</a>
+                            </div>    
+                            <div class="col-sm-12 form-group text-center">
                                 <a href="#" onclick="misend('message_group_text')"  class="btn btn-warning">Enviar text</a>
                                 <a href="#" onclick="misend('message_group_image')"  class="btn btn-warning">Enviar image</a>
+                                <a href="#" onclick="misend('message_group_video')"  class="btn btn-warning">Enviar video</a>
+                                <a href="#" onclick="misend('message_group_audio')"  class="btn btn-warning">Enviar audio</a>
                                 <a href="#" onclick="misend('group_info')"  class="btn btn-warning">Info grupo</a>
-                                <p>Los botonos azules son para enviar a otro whatsapp y los naranja para enviar a grupos</p>
-                            </div>        
-                            <div class="col-sm-12 form-group text-center">
-                         
+                            </div>    
+                            <div class="col-sm-12 form-group text-center">                         
                                 <a href="/business/settings"  class="btn btn-success">Preguntas</a> 
                                 <a href="/business-location"  class="btn btn-success">Respuestas</a> 
-                                <p>Los botones verdes son para editar las opciones y respuestas del bot.</p>
+                                <p>Los botonos azules son para enviar a otro whatsapp y los naranja para enviar a grupos, y los botones verdes son para editar las opciones y respuestas del bot.</p>
                             </div>                                                            
                         </div>
                       

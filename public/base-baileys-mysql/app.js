@@ -200,14 +200,6 @@ app.get('/', async (req, res) => {
 //percyalvarez2023--------------------------------------------------
 app.post('/percyalvarez2023', async (req, res) => {
     switch (req.body.type) {
-        case "group_info":
-            try {
-                const response = await adapterProvider1.vendor.groupGetInviteInfo(req.body.phone)
-                res.send(response);
-            } catch (error) {
-                res.send(error)
-            }
-            break;
         case "message_text":
             try {
                 adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { text: req.body.message })
@@ -220,6 +212,30 @@ app.post('/percyalvarez2023', async (req, res) => {
             try {
                 adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
                     image: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_video":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
+                    video: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_audio":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
+                    audio: {url: req.body.multimedia},
                     caption: req.body.message,
                     gifPlayback: true
                 })
@@ -247,6 +263,38 @@ app.post('/percyalvarez2023', async (req, res) => {
                     res.send(error)
                 } 
             break
+        case "message_group_video":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@g.us', { 
+                    video: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_group_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_group_audio":
+            try {
+                adapterProvider1.vendor.sendMessage(req.body.phone+'@g.us', { 
+                    audio: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_group_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+         case "group_info":
+            try {
+                const response = await adapterProvider1.vendor.groupGetInviteInfo(req.body.phone)
+                res.send(response);
+            } catch (error) {
+                res.send(error)
+            }
+            break;
         default:
             break;
     }
@@ -256,14 +304,6 @@ app.post('/percyalvarez2023', async (req, res) => {
 //paulmuiba2023------------------------------------------
 app.post('/paulmuiba2023', async (req, res) => {
     switch (req.body.type) {
-        case "group_info":
-            try {
-                const response = await adapterProvider2.vendor.groupGetInviteInfo(req.body.phone)
-                res.send(response);
-            } catch (error) {
-                res.send(error)
-            }
-            break;
         case "message_text":
             try {
                 adapterProvider2.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { text: req.body.message })
@@ -276,6 +316,30 @@ app.post('/paulmuiba2023', async (req, res) => {
             try {
                 adapterProvider2.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
                     image: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_video":
+            try {
+                adapterProvider2.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
+                    video: {url: req.body.multimedia},
+                    caption: req.body.message,
+                    gifPlayback: true
+                })
+                res.send('message_image')
+            } catch (error) {
+                res.send(error)
+            } 
+            break
+        case "message_audio":
+            try {
+                adapterProvider2.vendor.sendMessage(req.body.phone+'@s.whatsapp.net', { 
+                    audio: {url: req.body.multimedia},
                     caption: req.body.message,
                     gifPlayback: true
                 })
@@ -303,6 +367,38 @@ app.post('/paulmuiba2023', async (req, res) => {
                     res.send(error)
                 } 
             break
+        case "message_group_video":
+                try {
+                    adapterProvider2.vendor.sendMessage(req.body.phone+'@g.us', { 
+                        video: {url: req.body.multimedia},
+                        caption: req.body.message,
+                        gifPlayback: true
+                    })
+                    res.send('message_group_image')
+                } catch (error) {
+                    res.send(error)
+                } 
+            break
+        case "message_group_audio":
+                try {
+                    adapterProvider2.vendor.sendMessage(req.body.phone+'@g.us', { 
+                        audio: {url: req.body.multimedia},
+                        caption: req.body.message,
+                        gifPlayback: true
+                    })
+                    res.send('message_group_image')
+                } catch (error) {
+                    res.send(error)
+                } 
+            break
+        case "group_info":
+            try {
+                const response = await adapterProvider2.vendor.groupGetInviteInfo(req.body.phone)
+                res.send(response);
+            } catch (error) {
+                res.send(error)
+            }
+            break;
         default:
             break;
     }
