@@ -218,7 +218,7 @@
     <script>
         async function misend(mitype) {    
             var miurl = "{{ env('CB_URL').$username }}"
-            console.log("{{ asset('storage') }}/"+$("#multimedia").val())
+            // console.log("{{ asset('storage') }}/"+$("#multimedia").val())
             var midata = {
                 phone: $("#phone").val(),
                 message: $("#message").val(),

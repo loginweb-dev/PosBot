@@ -15,6 +15,7 @@
 		$is_discount_enabled = $pos_settings['disable_discount'] != 1 ? true : false;
 		$is_rp_enabled = session('business.enable_rp') == 1 ? true : false;
 	@endphp
+	
 	{!! Form::open(['url' => action('SellPosController@store'), 'method' => 'post', 'id' => 'add_pos_sell_form' ]) !!}
 	<div class="row mb-12">
 		<div class="col-md-12">
@@ -112,4 +113,34 @@
             @endif
 	    @endforeach
 	@endif
+
+	<script>
+		$( "#add_pos_sell_form" ).on( "submit", async function( event ) {
+			event.preventDefault();
+
+			try {				
+				var miurl = "{{ env('CB_NOTI_URL') }}"
+				var midata = {
+					phone: "{{ env('CB_NOTI_NUM') }}"
+					message: "Nueva venta de: {{ $business_details->name }} | ID:{{ $business_details->id }}",
+					type: "message_text",
+					multimedia: null
+				}
+				await axios.post(miurl, midata)
+					.then(function (response) {
+						toastr.info("mensaje enviado...")                    
+					})
+					.catch(function (error) {
+						if (error.message) {
+							toastr.error("eror en la notificacion")
+						}else{
+							toastr.info("mensaje enviado...")
+						}                    
+					})
+			} catch (error) {
+				toastr.error("eror en la notificacion 2")
+			}
+	  });
+	</script>
+
 @endsection
