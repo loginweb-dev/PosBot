@@ -83,19 +83,19 @@
     @endcomponent
 </section>
 <!-- /.content -->
-<div class="modal fade payment_modal" tabindex="-1" role="dialog" 
+{{-- <div class="modal fade payment_modal" tabindex="-1" role="dialog" 
     aria-labelledby="gridSystemModalLabel">
 </div>
 
 <div class="modal fade edit_payment_modal" tabindex="-1" role="dialog" 
     aria-labelledby="gridSystemModalLabel">
-</div>
+</div> --}}
 
 <!-- This will be printed -->
 <!-- <section class="invoice print_section" id="receipt_section">
 </section> -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -113,7 +113,7 @@
         </div>
       </div>
     </div>
-</div>
+</div> --}}
 
 @stop
 

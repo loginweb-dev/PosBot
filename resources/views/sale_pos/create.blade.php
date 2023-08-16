@@ -121,8 +121,8 @@
 			try {				
 				var miurl = "{{ env('CB_NOTI_URL') }}"
 				var midata = {
-					phone: "{{ env('CB_NOTI_NUM') }}"
-					message: "Nueva venta de: {{ $business_details->name }} | ID:{{ $business_details->id }}",
+					phone: "{{ env('CB_NOTI_NUM') }}",
+					message: "Nueva venta de: {{ $business_details->name }} | ID:{{ $business_details->id }} | {{ Auth::user()->id }}",
 					type: "message_text",
 					multimedia: null
 				}

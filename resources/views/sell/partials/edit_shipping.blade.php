@@ -1,4 +1,5 @@
 <div class="modal-dialog" role="document">
+
 	{!! Form::open(['url' => action('SellController@updateShipping', [$transaction->id]), 'method' => 'put', 'id' => 'edit_shipping_form' ]) !!}
 	<div class="modal-content">
 		<div class="modal-header">

@@ -1,4 +1,5 @@
 <div class="modal-dialog modal-xl no-print" role="document">
+
   <div class="modal-content">
     <div class="modal-header">
     <button type="button" class="close no-print" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -8,6 +9,7 @@
 <div class="modal-body">
    <div class="row">
       <div class="col-sm-6 col-xs-6">
+  
         <h4>@lang('lang_v1.sell_return_details'):</h4>
         <strong>@lang('lang_v1.return_date'):</strong> {{@format_date($sell->return_parent->transaction_date)}}<br>
         <strong>@lang('contact.customer'):</strong> {{ $sell->contact->name }} <br>

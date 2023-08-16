@@ -20,6 +20,7 @@
         }
       @endphp
       <div class="@if(!empty($export_custom_fields)) col-sm-3 @else col-sm-4 @endif">
+        
         <b>@if($sell->type == 'sales_order') {{ __('restaurant.order_no') }} @else {{ __('sale.invoice_no') }} @endif:</b> #{{ $sell->invoice_no }}<br>
         <b>{{ __('sale.status') }}:</b> 
           @if($sell->status == 'draft' && $sell->is_quotation == 1)
@@ -44,7 +45,6 @@
         @if(!empty($custom_labels['sell']['custom_field_4']))
           <br><strong>{{$custom_labels['sell']['custom_field_4'] ?? ''}}: </strong> {{$sell->custom_field_4}}
         @endif
-
         @if(!empty($sales_orders))
               <br><br><strong>@lang('lang_v1.sales_orders'):</strong>
              <table class="table table-slim no-border">
@@ -70,12 +70,14 @@
           </a>
         @endif
       </div>
+      
       <div class="@if(!empty($export_custom_fields)) col-sm-3 @else col-sm-4 @endif">
         @if(!empty($sell->contact->supplier_business_name))
           {{ $sell->contact->supplier_business_name }}<br>
         @endif
         <b>{{ __('sale.customer_name') }}:</b> {{ $sell->contact->name }}<br>
         <b>{{ __('business.address') }}:</b><br>
+        
         @if(!empty($sell->billing_address()))
           {{$sell->billing_address()}}
         @else
@@ -92,6 +94,10 @@
             <br>
               {{__('contact.landline')}}: {{ $sell->contact->landline }}
           @endif
+          <br>
+          NIT: {{ $sell->contact["tax_number"] }}
+          <br>
+          Whatsapp: {{ $sell->contact["mobile"] }}
         @endif
         
       </div>
