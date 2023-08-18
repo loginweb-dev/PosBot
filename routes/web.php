@@ -40,10 +40,8 @@ Route::middleware(['setData'])->group(function () {
 Route::middleware(['setData', 'auth', 'SetSessionData', 'language', 'timezone', 'AdminSidebarMenu', 'CheckUserLogin'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/michatbot', 'HomeController@chatbot');
-    Route::get('/siat', 'HomeController@siat');
-    Route::get('/siat/convert', 'SellController@siat2');
-    // Route::get('/multimedia', 'HomeController@multimedia');
+    Route::get('/chatbot', 'ChatbotController@chatbot');
+    Route::get('/facturas', 'SiatController@facturas');
     
     Route::get('/home/get-totals', 'HomeController@getTotals');
     Route::get('/home/product-stock-alert', 'HomeController@getProductStockAlert');

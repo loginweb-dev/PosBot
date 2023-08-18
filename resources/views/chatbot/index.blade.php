@@ -6,6 +6,7 @@
 {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> --}}
 @endsection
 @php
+// require_once LIB_SIAT_DIR . ‘/autoload.php’;
     $username = Auth::user()->username;
     $miledas = App\Lead::where("session", $username)->orderBy("id", "DESC")->limit(100)->get(); 
     $minegocio = App\User::where("username", $username)->with("business")->first(); 
@@ -13,11 +14,11 @@
     $miclientes = App\Contact::where("business_id", $minegocio->business->id)->get();
 
     $custom_labels = json_decode(session('business.custom_labels'), true);
+    // require_once asset('/Siat/autoload.php');
 @endphp
 @section('content')
 
 <section class="content">
-
     <div class="col-xs-12 pos-tab-container">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pos-tab-menu">
             <div class="list-group">

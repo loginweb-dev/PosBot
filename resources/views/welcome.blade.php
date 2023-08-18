@@ -7,7 +7,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
-                margin-top: 10%;
+                /* margin-top: 10%; */
             }
         .title {
                 font-size: 84px;
@@ -32,7 +32,7 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-top: 50px;
+          /* margin-top: 20px; */
         }
         
         label {
@@ -41,7 +41,7 @@
         }
         
         textarea {
-          width: 80%;
+          width: 90%;
           height: 150px;
           padding: 10px;
           font-size: 16px;
@@ -62,13 +62,15 @@
         }
         </style>
     <div class="title flex-center" style="font-weight: 600 !important;">
-        {{-- {{ config('app.name', 'ultimatePOS') }} --}}
         {{ env('APP_TITLE', 'ultimatePOS') }}
     </div>
-    <p class="tagline">
-        
-        ¡Bienvenido(a) a nuestro sistema de ventas en línea! Estamos encantados de que hayas decidido utilizar nuestros servicios para hacer crecer tu negocio e internet. Nuestro objetivo es proporcionarte una plataforma fácil de usar y segura para gestionar tus ventas y facturación en línea. Estamos comprometidos en ayudarte a ahorrar tiempo y dinero, brindándote una experiencia de usuario excepcional.
+    <p class="tagline">        
+        ¡Bienvenido(a) a nuestro sistema de ventas y facturacón en línea! Estamos encantados de que hayas decidido utilizar nuestros servicios para hacer crecer tu negocio e internet. 
+        Nuestro objetivo es proporcionarte una plataforma fácil de usar y segura para gestionar tus ventas y facturación en línea. Estamos comprometidos en ayudarte a ahorrar tiempo y dinero, brindándote una experiencia de usuario excepcional.
     </p>
+    <p class="tagline text-center"> Mas información comunicarse al {{ env('PHONE')
+    }}</p>
+    <hr>
     <form action="https://api.whatsapp.com/send" method="get" target="_blank">
         <label for="message">Mensaje o Consuta a un agente ventas:</label>
         <textarea id="message" name="text"></textarea>

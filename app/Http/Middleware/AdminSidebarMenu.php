@@ -36,19 +36,14 @@ class AdminSidebarMenu
                 "Chat & Siat",
                 function ($sub) {
                         $sub->url(
-                            action('HomeController@chatbot'),
-                            "Chatbots",
-                            ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'michatbot']
+                            action('ChatbotController@chatbot'),
+                            "Chatbot",
+                            ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'chatbot']
                         );
-                        // $sub->url(
-                        //     action('HomeController@multimedia'),
-                        //     "Multimedia",
-                        //     ['icon' => 'fa fas fa-file', 'active' => request()->segment(1) == 'multimedia']
-                        // );
                         $sub->url(
-                            action('HomeController@siat'),
-                            "Facturacion",
-                            ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'siat']
+                            action('SiatController@facturas'),
+                            "Facturas",
+                            ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'facturas']
                         );
                 },
                 ['icon' => 'fa fas fa-comments-dollar']

@@ -83,7 +83,7 @@
         @else
           {!! $sell->contact->contact_address !!}
           @if($sell->contact->mobile)
-          <br>
+            <br>
               {{__('contact.mobile')}}: {{ $sell->contact->mobile }}
           @endif
           @if($sell->contact->alternate_number)
@@ -94,10 +94,10 @@
             <br>
               {{__('contact.landline')}}: {{ $sell->contact->landline }}
           @endif
-          <br>
-          NIT: {{ $sell->contact["tax_number"] }}
-          <br>
-          Whatsapp: {{ $sell->contact["mobile"] }}
+          @if($sell->contact->tax_number)
+            <br>
+            NIT: {{ $sell->contact["tax_number"] }}
+          @endif
         @endif
         
       </div>
