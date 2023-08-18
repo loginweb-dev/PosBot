@@ -72,7 +72,7 @@
     }}</p>
     <hr>
     <form action="https://api.whatsapp.com/send" method="get" target="_blank">
-        <label for="message">Mensaje o Consuta a un agente ventas:</label>
+        <label for="message">enviar sms a un agente de ventas:</label>
         <textarea id="message" name="text"></textarea>
         <input type="hidden" name="phone" value="{{ env('PHONE')
      }}" />

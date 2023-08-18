@@ -1,19 +1,19 @@
 <div class="pos-tab-content">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('tax_label_1', __('business.tax_1_name') . ':') !!}
+                {!! Form::label('tax_label_1','Titular' . ':') !!}
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="fa fa-info"></i>
                     </span>
-                    {!! Form::text('tax_label_1', $business->tax_label_1, ['class' => 'form-control','placeholder' => __('business.tax_1_placeholder')]); !!}
+                    {!! Form::text('tax_label_1', $business->tax_label_1, ['class' => 'form-control','placeholder' => "Titular"]); !!}
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('tax_number_1', __('business.tax_1_no') . ':') !!}
+                {!! Form::label('tax_number_1', 'NIT'. ':') !!}
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="fa fa-info"></i>
@@ -22,30 +22,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('tax_label_2', __('business.tax_2_name') . ':') !!}
+                {!! Form::label('tax_label_2', 'Usuario' . ':') !!}
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="fa fa-info"></i>
                     </span>
-                    {!! Form::text('tax_label_2', $business->tax_label_2, ['class' => 'form-control','placeholder' => __('business.tax_1_placeholder')]); !!}
+                    {!! Form::text('tax_label_2', $business->tax_label_2, ['class' => 'form-control','placeholder' => 'Usuario']); !!}
                 </div>
             </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="col-sm-4">
+        {{-- <div class="clearfix"></div> --}}
+        <div class="col-sm-6">
             <div class="form-group">
-                {!! Form::label('tax_number_2', __('business.tax_2_no') . ':') !!}
+                {!! Form::label('tax_number_2', 'Clave' . ':') !!}
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="fa fa-info"></i>
                     </span>
-                    {!! Form::text('tax_number_2', $business->tax_number_2, ['class' => 'form-control']); !!}
+                    {!! Form::text('tax_number_2', $business->tax_number_2, ['class' => 'form-control', 'placeholder' => 'Clave']); !!}
                 </div>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             <div class="form-group">
                 <div class="checkbox">
                 <br>

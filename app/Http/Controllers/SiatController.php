@@ -25,6 +25,7 @@ class SiatController extends Controller
 			'cufd'			=> null,
 		]);
 		$config->validate();
+
 		$servCodigos = new ServicioFacturacionCodigos(null, null, $config->tokenDelegado);
 		$servCodigos->setConfig((array)$config);
 		$resCuis = $servCodigos->cuis();
@@ -33,8 +34,6 @@ class SiatController extends Controller
 		$sync->setConfig((array)$config);
 
 		$tds = call_user_func([$sync, "sincronizarParametricaTipoDocumentoSector"]);
-		// return json_decode((array)$tds, true);
-		// return (array)$tds;
 		$tds = (array)$tds;
 		$tds = $tds["RespuestaListaParametricas"]->listaCodigos;
 		$tds = json_encode($tds);

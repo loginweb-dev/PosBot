@@ -48,24 +48,24 @@
 </div>
 <div class="col-md-6">
     <div class="form-group">
-        {!! Form::label('website', __('lang_v1.website') . ':') !!}
+        {!! Form::label('website', 'Fangpage (fb, tw, etc)' . ':') !!}
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="fa fa-globe"></i>
             </span>
-            {!! Form::text('website', null, ['class' => 'form-control','placeholder' => __('lang_v1.website')]); !!}
+            {!! Form::text('website', null, ['class' => 'form-control','placeholder' => 'Fangpage (facebook)']); !!}
         </div>
     </div>
-</div>
+</div> 
 <div class="clearfix"></div>
 <div class="col-md-6">
     <div class="form-group">
-    {!! Form::label('mobile', __('lang_v1.business_telephone') . ':') !!}
+    {!! Form::label('mobile', 'Whatsapp' . ':') !!}
     <div class="input-group">
         <span class="input-group-addon">
             <i class="fa fa-phone"></i>
         </span>
-        {!! Form::text('mobile', null, ['class' => 'form-control','placeholder' => __('lang_v1.business_telephone')]); !!}
+        {!! Form::text('mobile', 591, ['class' => 'form-control','placeholder' => __('lang_v1.business_telephone')]); !!}
     </div>
     </div>
 </div>
@@ -91,7 +91,7 @@
         <span class="input-group-addon">
             <i class="fa fa-globe"></i>
         </span>
-        {!! Form::text('country', null, ['class' => 'form-control','placeholder' => __('business.country'), 'required']); !!}
+        {!! Form::text('country', 'Bolivia', ['class' => 'form-control','placeholder' => __('business.country'), 'required']); !!}
     </div>
     </div>
 </div>
@@ -103,7 +103,7 @@
         <span class="input-group-addon">
             <i class="fa fa-map-marker"></i>
         </span>
-        {!! Form::text('state', null, ['class' => 'form-control','placeholder' => __('business.state'), 'required']); !!}
+        {!! Form::text('state', 'Beni', ['class' => 'form-control','placeholder' => __('business.state'), 'required']); !!}
     </div>
     </div>
 </div>
@@ -115,7 +115,7 @@
         <span class="input-group-addon">
             <i class="fa fa-map-marker"></i>
         </span>
-        {!! Form::text('city', null, ['class' => 'form-control','placeholder' => __('business.city'), 'required']); !!}
+        {!! Form::text('city', 'Cercado', ['class' => 'form-control','placeholder' => __('business.city'), 'required']); !!}
     </div>
     </div>
 </div>
@@ -126,7 +126,7 @@
         <span class="input-group-addon">
             <i class="fa fa-map-marker"></i>
         </span>
-        {!! Form::text('zip_code', null, ['class' => 'form-control','placeholder' => __('business.zip_code_placeholder'), 'required']); !!}
+        {!! Form::text('zip_code', '0000', ['class' => 'form-control','placeholder' => __('business.zip_code_placeholder'), 'required']); !!}
     </div>
     </div>
 </div>
@@ -138,7 +138,7 @@
         <span class="input-group-addon">
             <i class="fa fa-map-marker"></i>
         </span>
-        {!! Form::text('landmark', null, ['class' => 'form-control','placeholder' => __('business.landmark'), 'required']); !!}
+        {!! Form::text('landmark', 0, ['class' => 'form-control','placeholder' => __('business.landmark'), 'required']); !!}
     </div>
     </div>
 </div>
@@ -157,25 +157,26 @@
 
 <!-- tax details -->
 @if(empty($is_admin))
-    <h3>@lang('business.business_settings')</h3>
-
+    {{-- <h3>@lang('business.business_settings')</h3> --}}
+    <h3>Facturación</h3>
     <fieldset>
-    <legend>@lang('business.business_settings'):</legend>
+    {{-- <legend>@lang('business.business_settings'):</legend> --}}
+    <legend>Configuracion para la facturacion en linea</legend>
     <div class="col-md-6">
         <div class="form-group">
-            {!! Form::label('tax_label_1', __('business.tax_1_name') . ':') !!}
+            {!! Form::label('tax_label_1', 'Titular' . ':') !!}
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-info"></i>
                 </span>
-                {!! Form::text('tax_label_1', null, ['class' => 'form-control','placeholder' => __('business.tax_1_placeholder')]); !!}
+                {!! Form::text('tax_label_1', null, ['class' => 'form-control']); !!}
             </div>
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
-            {!! Form::label('tax_number_1', __('business.tax_1_no') . ':') !!}
+            {!! Form::label('tax_number_1', 'NIT' . ':') !!}
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-info"></i>
@@ -187,19 +188,19 @@
     <div class="clearfix"></div>
     <div class="col-md-6">
         <div class="form-group">
-            {!! Form::label('tax_label_2',__('business.tax_2_name') . ':') !!}
+            {!! Form::label('tax_label_2', 'Usuario' . ':') !!}
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-info"></i>
                 </span>
-                {!! Form::text('tax_label_2', null, ['class' => 'form-control','placeholder' => __('business.tax_1_placeholder')]); !!}
+                {!! Form::text('tax_label_2', null, ['class' => 'form-control']); !!}
             </div>
         </div>
     </div>
 
     <div class="col-md-6">
         <div class="form-group">
-            {!! Form::label('tax_number_2',__('business.tax_2_no') . ':') !!}
+            {!! Form::label('tax_number_2', 'Clave' . ':') !!}
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-info"></i>
