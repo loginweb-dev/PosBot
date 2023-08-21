@@ -130,6 +130,7 @@ class GeneralTest
 		
 		return $factura;
 	}
+
 	public static function testRecepcionFactura()
 	{
 		try
@@ -164,6 +165,7 @@ class GeneralTest
 			print $e->getTraceAsString();
 		}
 	}
+
 	public static function testRecepcionPaqueteFactura()
 	{
 		try
@@ -226,6 +228,7 @@ class GeneralTest
 			print $e->getTraceAsString();
 		}
 	}
+	
 	public function testRecepcionFacturaElectronica()
 	{
 		try

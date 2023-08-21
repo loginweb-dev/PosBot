@@ -22,12 +22,13 @@
     <div class="col-xs-12 pos-tab-container">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pos-tab-menu">
             <div class="list-group">
-                <a href="#" class="list-group-item text-center active">Agente 01</a>
-                <a href="#" class="list-group-item text-center">Agente 02</a>
-                <a href="#" class="list-group-item text-center">Agente 03</a>
-                <a href="#" class="list-group-item text-center">Leads</a>
-                <a href="#" class="list-group-item text-center">Multimedia</a>
-                <a href="#" class="list-group-item text-center">Call Center</a>
+                <a href="#" class="list-group-item active">Agente 01</a>
+                <a href="#" class="list-group-item">Agente 02</a>
+                <a href="#" class="list-group-item">Agente 03</a>
+                <a href="#" class="list-group-item">Leads</a>
+                <a href="#" class="list-group-item">SCRM</a>
+                <a href="#" class="list-group-item">Multimedia</a>
+                <a href="#" class="list-group-item">Call Center</a>
             </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 pos-tab">
@@ -167,7 +168,9 @@
                     </tbody>
                 </table>
             </div>
-
+            <div class="pos-tab-content">
+                <h4>Gestion de clientes CRM</h4>
+            </div>
             <div class="pos-tab-content">
                 <div id="fm"></div>
             </div>

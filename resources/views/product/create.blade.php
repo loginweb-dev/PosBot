@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <div class="clearfix"></div>
+        {{-- <div class="clearfix"></div> --}}
 
         <div class="col-sm-4 @if(!session('business.enable_category')) hide @endif">
           <div class="form-group">
@@ -140,12 +140,8 @@
             @endforeach
         @endif
         <div class="clearfix"></div>
-        <div class="col-sm-8">
-          <div class="form-group">
-            {!! Form::label('product_description', __('lang_v1.product_description') . ':') !!}
-              {!! Form::textarea('product_description', !empty($duplicate_product->product_description) ? $duplicate_product->product_description : null, ['class' => 'form-control']); !!}
-          </div>
-        </div>
+
+
         <div class="col-sm-4">
           <div class="form-group">
             {!! Form::label('image', __('lang_v1.product_image') . ':') !!}
@@ -153,7 +149,7 @@
             <small><p class="help-block">@lang('purchase.max_file_size', ['size' => (config('constants.document_size_limit') / 1000000)]) <br> @lang('lang_v1.aspect_ratio_should_be_1_1')</p></small>
           </div>
         </div>
-        </div>
+       
         <div class="col-sm-4">
           <div class="form-group">
             {!! Form::label('product_brochure', __('lang_v1.product_brochure') . ':') !!}
@@ -166,6 +162,14 @@
             </small>
           </div>
         </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            {!! Form::label('product_description', __('lang_v1.product_description') . ':') !!}
+              {!! Form::textarea('product_description', !empty($duplicate_product->product_description) ? $duplicate_product->product_description : null, ['class' => 'form-control']); !!}
+          </div>
+        </div>
+
     @endcomponent
 
     @component('components.widget', ['class' => 'box-primary'])

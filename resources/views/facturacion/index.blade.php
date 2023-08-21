@@ -48,43 +48,34 @@
 
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#sinc01" aria-controls="sinc01" role="tab" data-toggle="tab">Codigos</a></li>
-                            <li role="presentation"><a href="#sinc02" aria-controls="sinc02" role="tab" data-toggle="tab">Tipo Documento Sector</a></li>
+                            {{-- <li role="presentation"><a href="#sinc02" aria-controls="sinc02" role="tab" data-toggle="tab">Clientes</a></li> --}}
+                            {{-- <li role="presentation"><a href="#sinc03" aria-controls="sinc03" role="tab" data-toggle="tab">Productos</a></li> --}}
+                            <li role="presentation"><a href="#sinc04" aria-controls="sinc04" role="tab" data-toggle="tab">Sucursales</a></li>
+                            <li role="presentation"><a href="#sinc05" aria-controls="sinc05" role="tab" data-toggle="tab">Punto de ventas</a></li>
+                            <li role="presentation"><a href="#sinc06" aria-controls="sinc06" role="tab" data-toggle="tab">Tipo de Documentos</a></li>
                         </ul>            
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="sinc01">
                                 <div class="panel panel-bordered">            
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
-                                            <label for="">Sucursales</label>
-                                            <select name="" id="" class="form-control"></select>
+                                            <label for="">CUIS</label>
+                                            <input type="text" class="form-control" value="{{ $micuis }}">
                                         </div>
                                         <div class="col-sm-6 form-group">
-                                            <label for="">Puntos de Ventas</label>
-                                            <select name="" id="" class="form-control"></select>
-                                        </div>
-                                        <div class="col-sm-6 form-group">                            
-                                            <label for="">Codigo</label>
-                                            <input type="text" class="form-control">
-                                            <label for="">Vigencia</label>
-                                            <input type="text" class="form-control">
-                                            <a href="#" onclick="sincronizar()" class="btn btn-xs btn-primary btn-block">Obtener codigo CUIS</a>
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label for="">Codigo</label>
-                                            <input type="text" class="form-control">
-                                            <label for="">Control</label>
-                                            <input type="text" class="form-control">
-                                            <label for="">Expiracion</label>
-                                            <input type="text" class="form-control">
-                                            <label for="">Direccion</label>
-                                            <input type="text" class="form-control">
-                                            <a href="#" class="btn btn-xs btn-primary btn-block">Obtener codigo CUFD</a>
+                                            <label for="">CUFD</label>
+                                            <input type="text" class="form-control" value="{{ $micufd }}">
                                         </div>
                                     </div>                            
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="sinc02">     
-                                {{-- {{ $tds }} --}}
+                            <div role="tabpanel" class="tab-pane" id="sinc02">  
+                                <h4>Clientes</h4>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="sinc03">  
+                                <h4>Productos</h4>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="sinc06">     
                                 <table class="table" id="tb_sincronizarParametricaTipoDocumentoSector">
                                     <thead>
                                         <tr>

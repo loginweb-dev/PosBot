@@ -45,7 +45,28 @@
                 </div>
             </div>
         </div>
+
         <div class="col-sm-6">
+            <div class="form-group">
+                <label for="">Modalidad</label>        
+                <select name="tax_modalidad" id="tax_modalidad" class="form-control">
+                    <option value="MOD_ELECTRONICA_ENLINEA" @if($business->tax_modalidad=='MOD_ELECTRONICA_ENLINEA') selected @endif>Electronica</option>
+                    <option value="MOD_COMPUTARIZADA_ENLINEA"  @if($business->tax_modalidad=='MOD_COMPUTARIZADA_ENLINEA') selected @endif>Computarizada</option>
+                </select>         
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="">Abiemte</label>              
+                <select name="tax_ambiente" id="tax_ambiente" class="form-control">
+                    <option value="AMBIENTE_PRUEBAS" @if($business->tax_ambiente=='AMBIENTE_PRUEBAS') selected @endif>Pruebas</option>
+                    <option value="AMBIENTE_PRODUCCION" @if($business->tax_ambiente=='AMBIENTE_PRODUCCION') selected @endif>Produccion</option>
+                </select>               
+            </div>
+        </div>
+
+        <div class="col-sm-12">
             <div class="form-group">
                 <div class="checkbox">
                 <br>

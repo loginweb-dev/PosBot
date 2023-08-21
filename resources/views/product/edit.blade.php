@@ -28,7 +28,9 @@
               </div>
             </div>
 
-            <div class="col-sm-4 @if(!(session('business.enable_category') && session('business.enable_sub_category'))) hide @endif">
+            {{-- <div class="col-sm-4 @if(!(session('business.enable_category') && session('business.enable_sub_category'))) hide @endif"> --}}
+            <div class="col-sm-4 @if(!(session('business.enable_category'))) hide @endif">
+              {{-- <div class="col-sm-4"> --}}
               <div class="form-group">
                 {!! Form::label('sku', __('product.sku')  . ':*') !!} @show_tooltip(__('tooltip.sku'))
                 {!! Form::text('sku', $product->sku, ['class' => 'form-control',
@@ -47,6 +49,7 @@
             
             <div class="col-sm-4">
               <div class="form-group">
+             
                 {!! Form::label('unit_id', __('product.unit') . ':*') !!}
                 <div class="input-group">
                   {!! Form::select('unit_id', $units, $product->unit_id, ['placeholder' => __('messages.please_select'), 'class' => 'form-control select2', 'required']); !!}
@@ -86,7 +89,7 @@
 
             
 
-            <div class="clearfix"></div>
+            {{-- <div class="clearfix"></div> --}}
             <div class="col-sm-4 @if(!session('business.enable_category')) hide @endif">
               <div class="form-group">
                 {!! Form::label('category_id', __('product.category') . ':') !!}
@@ -108,7 +111,7 @@
               </div>
             </div>
 
-            <div class="clearfix"></div>
+            {{-- <div class="clearfix"></div> --}}
             
             <div class="col-sm-4">
               <div class="form-group">
@@ -142,12 +145,9 @@
                 @endforeach
             @endif
             <div class="clearfix"></div>
-            <div class="col-sm-8">
-              <div class="form-group">
-                {!! Form::label('product_description', __('lang_v1.product_description') . ':') !!}
-                  {!! Form::textarea('product_description', $product->product_description, ['class' => 'form-control']); !!}
-              </div>
-            </div>
+
+
+
             <div class="col-sm-4">
               <div class="form-group">
                 {!! Form::label('image', __('lang_v1.product_image') . ':') !!}
@@ -155,7 +155,8 @@
                 <small><p class="help-block">@lang('purchase.max_file_size', ['size' => (config('constants.document_size_limit') / 1000000)]). @lang('lang_v1.aspect_ratio_should_be_1_1') @if(!empty($product->image)) <br> @lang('lang_v1.previous_image_will_be_replaced') @endif</p></small>
               </div>
             </div>
-            </div>
+
+     
             <div class="col-sm-4">
               <div class="form-group">
                 {!! Form::label('product_brochure', __('lang_v1.product_brochure') . ':') !!}
@@ -169,6 +170,14 @@
                 </small>
               </div>
             </div>
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                {!! Form::label('product_description', __('lang_v1.product_description') . ':') !!}
+                  {!! Form::textarea('product_description', $product->product_description, ['class' => 'form-control']); !!}
+              </div>
+            </div>
+
     @endcomponent
 
     @component('components.widget', ['class' => 'box-primary'])
