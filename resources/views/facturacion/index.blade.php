@@ -12,21 +12,6 @@
                         <a href="#" class="list-group-item">Productos</a>
                         <a href="#" class="list-group-item">Clientes</a>
                         <a href="#" class="list-group-item active">Sincronizacion</a>
-                        {{-- <a href="#" class="list-group-item">Eventos</a>
-                        <a href="#" class="list-group-item">CUFDs</a>
-                        <a href="#" class="list-group-item">Codigos</a>
-                        <a href="#" class="list-group-item">Actividades</a>
-                        <a href="#" class="list-group-item">Act. Doc. Sector</a>
-                        <a href="#" class="list-group-item">Leyendas Factura</a>
-                        <a href="#" class="list-group-item">Tipos de Habitacion</a>
-                        <a href="#" class="list-group-item">Productos Servicios</a>
-                        <a href="#" class="list-group-item">Evento Significativos</a>
-                        <a href="#" class="list-group-item">Motivos Anulacion</a>
-                        <a href="#" class="list-group-item">Tipos Doc. Identidad</a>
-                        <a href="#" class="list-group-item">Tipos Doc. Sector</a>
-                        <a href="#" class="list-group-item">Tipos Emision</a>
-                        <a href="#" class="list-group-item">Tipos Metodo de Pago</a>
-                        <a href="#" class="list-group-item">Tipos Moneda</a> --}}
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 pos-tab">

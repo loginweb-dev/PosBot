@@ -4,9 +4,10 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header text-center" id="top">
-    <h2>{{$business->name}}</h2>
-    <h4 class="mb-0">{{$business_location->name}}</h4>
-    <p>{!! $business_location->location_address !!}</p>
+    <h2>Tienda: {{$business->name}}</h2>
+    <h4 class="mb-0">Whatsapp: {{$business_location->mobile}}</h4>
+    <h4 class="mb-0">Sucursal: {{$business_location->name}}</h4>
+    {{-- <p>{!! $business_location->location_address !!}</p> --}}
 </section>
 <section class="no-print">
     <div class="container">

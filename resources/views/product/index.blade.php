@@ -460,6 +460,7 @@
             }
             __currency_convert_recursively($(this));
         });
+        
         var data_table_initailized = false;
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             if ($(e.target).attr('href') == '#product_stock_report') {
