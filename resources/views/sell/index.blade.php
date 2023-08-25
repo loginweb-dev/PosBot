@@ -217,23 +217,21 @@
     });
 
     function siat(id) {
-        // Swal.fire({
-        //     title: 'Are you sure?',
-        //     text: "You won't be able to revert this!",
-        //     icon: 'warning',
-        //     showCancelButton: true,
-        //     confirmButtonColor: '#3085d6',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: 'Yes, delete it!'
-        //     }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         Swal.fire(
-        //         'Deleted!',
-        //         'Your file has been deleted.',
-        //         'success'
-        //         )
-        //     }
-        // })
+        Swal.fire({
+            title: 'Estas segur@?',
+            text: "Con esta accion enviaras tu factura a impuestos nacionales 🇧🇴.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Enviar'
+            }).then(async (result) => {
+            if (result.isConfirmed) {
+                var midata = await axios.post("/api/venta/id", {id: id})
+                console.log(midata.data)
+                // location.reload()
+            }
+        })
     }
 </script>
 <script src="{{ asset('js/payment.js?v=' . $asset_v) }}"></script>

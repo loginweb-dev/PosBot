@@ -146,6 +146,7 @@ class GeneralTest
 			$resCuis = $serviceCodigos->cuis($codigoPuntoVenta, $codigoSucursal);
 			$serviceCodigos->cuis = $resCuis->RespuestaCuis->codigo;
 			$resCufd = $serviceCodigos->cufd($codigoPuntoVenta, $codigoSucursal);
+			
 			//print_r($resCufd);
 			echo "Codigo CUIS: ", $resCuis->RespuestaCuis->codigo, "\n";
 			echo "Codigo CUFD: ", $resCufd->RespuestaCufd->codigo, "\n";

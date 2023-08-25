@@ -222,7 +222,7 @@ class AdminSidebarMenu
             //Sell dropdown
             if ($is_admin || auth()->user()->hasAnyPermission(['sell.view', 'sell.create', 'direct_sell.access', 'view_own_sell_only', 'view_commission_agent_sell', 'access_shipping', 'access_own_shipping', 'access_commission_agent_shipping', 'access_sell_return', 'direct_sell.view', 'direct_sell.update', 'access_own_sell_return']) ) {
                 $menu->dropdown(
-                    __('sale.sale'),
+                    'Ventas',
                     function ($sub) use ($enabled_modules, $is_admin, $pos_settings) {
                         if (!empty($pos_settings['enable_sales_order']) && ($is_admin ||auth()->user()->hasAnyPermission(['so.view_own', 'so.view_all', 'so.create'])) ) {
                             $sub->url(

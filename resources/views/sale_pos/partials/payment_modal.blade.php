@@ -104,19 +104,18 @@
 				            		<br/>
 				            		<span class="lead text-bold balance_due">0</span>
 				            		<input type="hidden" id="in_balance_due" value=0>
-				            	</div>
-
-
-				            					              
+				            	</div>				            					              
 				            </div>
 				            <!-- /.box-body -->
 				          </div>
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">@lang('messages.close')</button>
-				<button type="submit" class="btn btn-primary" id="pos-save">@lang('sale.finalize_payment')</button>
+			<div class="modal-footer text-center">
+				{{-- <button type="button" class="btn btn-default" data-dismiss="modal">@lang('messages.close')</button> --}}
+				{{-- <small>Puede crear ventas tipo recibo o factura</small> --}}
+				<button type="submit" class="btn btn-primary" id="pos-save">Guardar</button>
+				{{-- <a href="#" class="btn btn-warning">Factura</a> --}}
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
