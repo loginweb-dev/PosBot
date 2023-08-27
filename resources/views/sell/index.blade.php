@@ -227,19 +227,7 @@
             confirmButtonText: 'Enviar'
             }).then(async (result) => {
             if (result.isConfirmed) {
-                var miventa = await axios.post("/api/venta/id", {id: id})
-
-                var misiat = await axios.post("/api/factura/crear", {
-                    nit: "{{ $minegocio->business->tax_number_1 }}",
-                    razonSocial: "{{ $minegocio->business->tax_label_1 }}",
-                    tax_municipio: "{{ $minegocio->business->tax_municipio }}",
-                    tax_telefono: "{{ $minegocio->business->tax_telefono }}",
-                    tax_numeroFactura: "{{ $minegocio->business->tax_numeroFactura }}",
-                    tax_codigoSucursal: "{{ $minegocio->business->tax_codigoSucursal }}",
-
-                })
-                console.log(midata.data)
-                // location.reload()
+                var miventa = await axios.post("/api/venta/id", {id: id})       
             }
         })
     }
