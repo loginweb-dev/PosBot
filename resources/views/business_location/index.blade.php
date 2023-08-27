@@ -29,6 +29,7 @@
             <table class="table table-bordered table-striped" id="business_location_table">
                 <thead>
                     <tr>
+                        
                         <th>@lang( 'invoice.name' )</th>
                         <th>@lang( 'lang_v1.location_id' )</th>
                         <th>@lang( 'business.landmark' )</th>
@@ -40,7 +41,7 @@
                         <th>@lang( 'invoice.invoice_scheme' )</th>
                         <th>@lang('lang_v1.invoice_layout_for_pos')</th>
                         <th>@lang('lang_v1.invoice_layout_for_sale')</th>
-                        <th>@lang( 'messages.action' )</th>
+                        <th>@lang( 'messages.action' )</th>                       
                     </tr>
                 </thead>
             </table>

@@ -128,10 +128,10 @@ Route::post('factura/eventos', function (Request $request) {
 
     switch ($request->type) {             
         // sincronizarParametricaTipoMoneda
-        case 'sincronizarParametricaTipoMoneda':            
+        case 'sincronizarParametricaTipoMetodoPago':            
             $sync = new ServicioFacturacionSincronizacion($resCuis->RespuestaCuis->codigo, null, $config->tokenDelegado);
             $sync->setConfig((array)$config);
-            $res = call_user_func([$sync, 'sincronizarParametricaTipoMoneda']);    
+            $res = call_user_func([$sync, 'sincronizarParametricaTipoMetodoPago']);    
             return $res->RespuestaListaParametricas->listaCodigos; 
             break;  
         case 'sincronizarListaProductosServicios':            
@@ -223,6 +223,7 @@ Route::post('factura/eventos', function (Request $request) {
 });
 
 Route::post('factura/crear', function (Request $request) {
+    return $request;
     $config = new SiatConfig([
         'nombreSistema'	=> env('FAC_NAME_SYS'),
         'codigoSistema'	=> env('FAC_CODE_SYS'),
@@ -238,20 +239,28 @@ Route::post('factura/crear', function (Request $request) {
     $codigoPuntoVenta = 0;
     $codigoSucursal = 0;
 
+    // verificar CI o NIT
+    $midoc = 0; 
+    if (strlen($request->numeroDocumento) < 10 ) {
+        $midoc = 1; 
+    } else {
+        $midoc = 5;
+    }
+     
     //##cabecera de la factura
     $factura = new CompraVenta();
     $factura->cabecera->razonSocialEmisor    = $request->razonSocial;
-    $factura->cabecera->municipio            = null;
-    $factura->cabecera->telefono             = 59177988343;
-    $factura->cabecera->numeroFactura        = 100;
-    $factura->cabecera->codigoSucursal       = 0;
-    $factura->cabecera->direccion            = 'calle de prueba';
+    $factura->cabecera->municipio            = $request->tax_municipio;
+    $factura->cabecera->telefono             = $request->tax_telefono;
+    $factura->cabecera->codigoSucursal       = $request->tax_codigoSucursal;
     $factura->cabecera->codigoPuntoVenta     = 0;
+    $factura->cabecera->direccion            = $request->tax_direccion;   
+    $factura->cabecera->numeroFactura        = $request->tax_numeroFactura; 
     $factura->cabecera->fechaEmision         = date('Y-m-dTH:i:s.v');
-    $factura->cabecera->nombreRazonSocial    = 'Alvarez';
-    $factura->cabecera->codigoTipoDocumentoIdentidad = 1; //CI - CEDULA DE IDENTIDAD
-    $factura->cabecera->numeroDocumento      = 5619016;
-    $factura->cabecera->codigoCliente        = null;
+    $factura->cabecera->nombreRazonSocial    = $request->client_name;
+    $factura->cabecera->codigoTipoDocumentoIdentidad = $midoc; //CI - CEDULA DE IDENTIDAD
+    $factura->cabecera->numeroDocumento      = $request->client_number;
+    // $factura->cabecera->codigoCliente        = null;
     $factura->cabecera->codigoMetodoPago     = 1;
     $factura->cabecera->montoTotal           = 200;
     $factura->cabecera->montoTotalMoneda     = $factura->cabecera->montoTotal;
@@ -259,15 +268,16 @@ Route::post('factura/crear', function (Request $request) {
     $factura->cabecera->descuentoAdicional   = 0;
     $factura->cabecera->codigoMoneda         = 1; //BOLIVIANO
     $factura->cabecera->tipoCambio           = 1;
-    $factura->cabecera->usuario              = 'admin_tiluchi';
+    // $factura->cabecera->usuario              = 'admin_tiluchi';
 
     //##detalle de la factura
     $detalle = new InvoiceDetail();
-    $detalle->cantidad           = 1;
-    $detalle->actividadEconomica = '475200'; //475200  //466300
+   
+    $detalle->actividadEconomica = '475200';
+    $detalle->codigoProductoSin  = '62161';
+    $detalle->descripcion        = 'Nombre del producto #001'; //nombre
     $detalle->codigoProducto     = '001';
-    $detalle->codigoProductoSin  = '99100';
-    $detalle->descripcion        = 'Nombre del producto #001';
+    $detalle->cantidad           = 1;
     $detalle->precioUnitario     = 100;
     $detalle->montoDescuento     = 0;
     $detalle->subTotal           = $detalle->cantidad * $detalle->precioUnitario;
@@ -289,8 +299,8 @@ Route::post('factura/crear', function (Request $request) {
     $service->codigoControl = $resCufd->RespuestaCufd->codigoControl;
     $service->setPublicCertificateFile('siat/tiluchi/certificado_Sin_Certificado.pem');
     $service->setPrivateCertificateFile('siat/tiluchi/clave_Sin_Certificado.pem');
-
-    // return (array)$factura;
+    $service->debug = true;
+    // return (array)$service;
 
     $res = $service->recepcionFactura($factura, SiatInvoice::TIPO_EMISION_ONLINE, SiatInvoice::FACTURA_DERECHO_CREDITO_FISCAL);
     return (array)$res;

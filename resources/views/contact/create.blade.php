@@ -27,7 +27,19 @@
 
     <div class="modal-body">
         <div class="row">            
-            <div class="col-md-4 contact_type_div">
+            <div class="col-md-3">
+                <label for="">Tipo de cliente</label>
+                <br>
+                <label class="radio-inline">
+                    <input type="radio" name="contact_type_radio" id="inlineRadio1" value="individual">
+                    @lang('lang_v1.individual')
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="contact_type_radio" id="inlineRadio2" value="business">
+                    @lang('business.business')
+                </label>
+            </div>
+            <div class="col-md-3 contact_type_div">
                 <div class="form-group">
                     {!! Form::label('type', __('contact.contact_type') . ':*' ) !!}
                     <div class="input-group">
@@ -38,17 +50,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mt-15">
-                <label class="radio-inline">
-                    <input type="radio" name="contact_type_radio" id="inlineRadio1" value="individual">
-                    @lang('lang_v1.individual')
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="contact_type_radio" id="inlineRadio2" value="business">
-                    @lang('business.business')
-                </label>
-            </div>
-            <div class="col-md-4">
+
+            <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('contact_id', __('lang_v1.contact_id') . ':') !!}
                     <div class="input-group">
@@ -57,12 +60,12 @@
                         </span>
                         {!! Form::text('contact_id', null, ['class' => 'form-control','placeholder' => __('lang_v1.contact_id')]); !!}
                     </div>
-                    <p class="help-block">
+                    {{-- <p class="help-block">
                         @lang('lang_v1.leave_empty_to_autogenerate')
-                    </p>
+                    </p> --}}
                 </div>
             </div>
-            <div class="col-md-4 customer_fields">
+            <div class="col-md-3 customer_fields">
                 <div class="form-group">
                   {!! Form::label('customer_group_id', __('lang_v1.customer_group') . ':') !!}
                   <div class="input-group">
@@ -74,7 +77,7 @@
                 </div>
             </div>
             <div class="clearfix customer_fields"></div>
-            <div class="col-md-4 business" style="display: none;">
+            <div class="col-md-6 business" style="display: none;">
                 <div class="form-group">
                     {!! Form::label('supplier_business_name', __('business.business_name') . ':') !!}
                     <div class="input-group">
@@ -126,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('alternate_number', __('contact.alternate_contact_number') . ':') !!}
                     <div class="input-group">
@@ -136,8 +139,8 @@
                         {!! Form::text('alternate_number', null, ['class' => 'form-control', 'placeholder' => __('contact.alternate_contact_number')]); !!}
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
+            </div> --}}
+            {{-- <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('landline', __('contact.landline') . ':') !!}
                     <div class="input-group">
@@ -147,7 +150,7 @@
                         {!! Form::text('landline', null, ['class' => 'form-control', 'placeholder' => __('contact.landline')]); !!}
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('email', __('business.email') . ':') !!}
@@ -159,8 +162,19 @@
                     </div>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-sm-4 individual" style="display: none;">
+            <div class="col-md-3">
+                <div class="form-group">
+                  {!! Form::label('tax_number', __('contact.tax_no') . ':') !!}
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                          <i class="fa fa-info"></i>
+                      </span>
+                      {!! Form::text('tax_number', null, ['class' => 'form-control', 'placeholder' => __('contact.tax_no')]); !!}
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="clearfix"></div> --}}
+            <div class="col-sm-3 individual" style="display: none;">
                 <div class="form-group">
                     {!! Form::label('dob', __('lang_v1.dob') . ':') !!}
                     <div class="input-group">
@@ -174,7 +188,7 @@
             </div>
 
             <!-- lead additional field -->
-            <div class="col-md-4 lead_additional_div">
+            {{-- <div class="col-md-4 lead_additional_div">
               <div class="form-group">
                   {!! Form::label('crm_source', __('lang_v1.source') . ':' ) !!}
                   <div class="input-group">
@@ -208,8 +222,9 @@
                       </div>
                   </div>
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix"></div> --}}
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary center-block more_btn" data-target="#more_div">@lang('lang_v1.more_info') <i class="fa fa-chevron-down"></i></button>
@@ -219,7 +234,7 @@
                 {!! Form::hidden('position', null, ['id' => 'position']); !!}
                 <div class="col-md-12"><hr/></div>
 
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="form-group">
                       {!! Form::label('tax_number', __('contact.tax_no') . ':') !!}
                         <div class="input-group">
@@ -229,7 +244,7 @@
                           {!! Form::text('tax_number', null, ['class' => 'form-control', 'placeholder' => __('contact.tax_no')]); !!}
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-md-4 opening_balance">
                   <div class="form-group">
@@ -254,7 +269,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="clearfix"></div>
+                {{-- <div class="clearfix"></div> --}}
                 @php
                   $common_settings = session()->get('business.common_settings');
                   $default_credit_limit = !empty($common_settings['default_credit_limit']) ? $common_settings['default_credit_limit'] : null;
@@ -299,7 +314,8 @@
                         {!! Form::text('city', null, ['class' => 'form-control', 'placeholder' => __('business.city')]); !!}
                     </div>
                 </div>
-              </div>
+            </div>
+
           <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('state', __('business.state') . ':') !!}
@@ -522,12 +538,13 @@
             @endif
             </div>
         </div>
-        @include('layouts.partials.module_form_part')
+        {{-- @include('layouts.partials.module_form_part') --}}
     </div>
     
     <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">@lang( 'messages.close' )</button>
       <button type="submit" class="btn btn-primary">@lang( 'messages.save' )</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">@lang( 'messages.close' )</button>
+      
     </div>
 
     {!! Form::close() !!}

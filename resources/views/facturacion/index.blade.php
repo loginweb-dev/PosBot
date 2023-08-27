@@ -11,7 +11,7 @@
                     <option value="">-- Selecciona una opcion --</option>
                                     
                     
-                    <option value="sincronizarParametricaTipoMoneda">sincronizarParametricaTipoMoneda</option>
+                    <option value="sincronizarParametricaTipoMetodoPago">sincronizarParametricaTipoMetodoPago</option>
                     <option value="sincronizarListaProductosServicios">sincronizarListaProductosServicios</option>
                     <option value="sincronizarParametricaTipoPuntoVenta">sincronizarParametricaTipoPuntoVenta</option>
                     <option value="sincronizarListaLeyendasFactura">sincronizarListaLeyendasFactura</option>
