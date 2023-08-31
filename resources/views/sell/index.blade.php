@@ -61,6 +61,7 @@
                         <th>@lang('sale.shipping_details')</th>
                         <th>@lang('restaurant.table')</th>
                         <th>@lang('restaurant.service_staff')</th> --}}
+                        <th>Siat</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -177,6 +178,7 @@
                 // { data: 'shipping_details', name: 'shipping_details'},
                 // { data: 'table_name', name: 'tables.name', @if(empty($is_tables_enabled)) visible: false @endif },
                 // { data: 'waiter', name: 'ss.first_name', @if(empty($is_service_staff_enabled)) visible: false @endif },
+                { data: 'siat', name: 'siat'},
             ],
             "fnDrawCallback": function (oSettings) {
                 __currency_convert_recursively($('#sell_table'));
@@ -217,19 +219,21 @@
     });
 
     function siat(id) {
-        Swal.fire({
-            title: 'Estas segur@?',
-            text: "Con esta accion enviaras tu factura a impuestos nacionales 🇧🇴.",
+        swal({
+            title: LANG.sure,
             icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Enviar'
-            }).then(async (result) => {
-            if (result.isConfirmed) {
-                var miventa = await axios.post("/api/venta/id", {id: id})       
+            buttons: true,
+            // dangerMode: true,    
+        }).then(async (result) => {
+            if (result) {
+                var miventa = await axios.post("/api/venta/id", {id: id})    
+                console.log(miventa.data)  
+                toastr.success("Venta enviada al siat..")
+            }else{
+                toastr.error("Cancelado..")
             }
-        })
+        });
+
     }
 </script>
 <script src="{{ asset('js/payment.js?v=' . $asset_v) }}"></script>

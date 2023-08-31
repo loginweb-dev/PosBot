@@ -122,8 +122,8 @@ class TransactionUtil extends Util
             'prefer_payment_method' => !empty($input['prefer_payment_method']) ? $input['prefer_payment_method'] : null,
             'prefer_payment_account' => !empty($input['prefer_payment_account']) ? $input['prefer_payment_account'] : null,
             'is_export' => !empty($input['is_export']) ? 1 : 0,
-            'export_custom_fields_info' => (!empty($input['is_export']) && !empty($input['export_custom_fields_info'])) ? $input['export_custom_fields_info'] : null
-
+            'export_custom_fields_info' => (!empty($input['is_export']) && !empty($input['export_custom_fields_info'])) ? $input['export_custom_fields_info'] : null,
+            'siat' => $input['siat']
         ]);
 
         return $transaction;
@@ -4689,7 +4689,8 @@ class TransactionUtil extends Util
                     DB::raw("CONCAT(COALESCE(ss.surname, ''),' ',COALESCE(ss.first_name, ''),' ',COALESCE(ss.last_name,'')) as waiter"),
                     'tables.name as table_name',
                     DB::raw('SUM(tsl.quantity - tsl.so_quantity_invoiced) as so_qty_remaining'),
-                    'transactions.is_export'
+                    'transactions.is_export',
+                    'transactions.siat',
                 );
 
         if ($sale_type == 'sell') {

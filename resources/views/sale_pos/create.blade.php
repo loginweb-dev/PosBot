@@ -141,6 +141,11 @@
 	// 			toastr.error("eror en la notificacion 2")
 	// 		}
 	//   });
+
+	 $('#siat').change(function (e) { 
+		e.preventDefault();
+		toastr.info("Cambiaste el tipo de venta")
+	 });
 	</script>
 
 @endsection

@@ -3,7 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">@lang('lang_v1.payment')</h4>
+				<h4 class="modal-title">Nueva Venta | {{  date('Y-m-d\TH:i:s.v') }} | {{ Auth::user()->username }}</h4>
 			</div>
 			<div class="modal-body">
 				<div class="row">
@@ -31,28 +31,38 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<button type="button" class="btn btn-primary btn-block" id="add-payment-row">@lang('sale.add_payment_row')</button>
+								<button type="button" class="btn btn-default btn-block" id="add-payment-row">@lang('sale.add_payment_row')</button>
 							</div>
 						</div>
 						<br>
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="form-group">
 									{!! Form::label('sale_note', __('sale.sell_note') . ':') !!}
 									{!! Form::textarea('sale_note', !empty($transaction)? $transaction->additional_notes:null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => __('sale.sell_note')]); !!}
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="form-group">
 									{!! Form::label('staff_note', __('sale.staff_note') . ':') !!}
 									{!! Form::textarea('staff_note', 
 									!empty($transaction)? $transaction->staff_note:null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => __('sale.staff_note')]); !!}
 								</div>
 							</div>
+							<div class="col-md-4">
+								{!! Form::label('siat', 'Tipo de Venta') !!}
+								{{-- <br>
+								{!! Form::checkbox('siat', null, false) !!} --}}
+								<select name="siat" id="siat" class="form-control">
+									<option value="0">Recibo</option>
+									<option value="1">Factura</option>
+								</select>
+								<small>si cambia a factura la venta se enviara a inpuestos nacionales</small>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-3">
-						<div class="box box-solid bg-orange">
+						<div class="box box-solid bg-black">
 				            <div class="box-body">
 				            	<div class="col-md-12">
 				            		<strong>
@@ -110,12 +120,7 @@
 				          </div>
 					</div>
 				</div>
-			</div>
-			<div class="modal-footer text-center">
-				{{-- <button type="button" class="btn btn-default" data-dismiss="modal">@lang('messages.close')</button> --}}
-				{{-- <small>Puede crear ventas tipo recibo o factura</small> --}}
-				<button type="submit" class="btn btn-primary" id="pos-save">Guardar</button>
-				{{-- <a href="#" class="btn btn-warning">Factura</a> --}}
+				<button type="submit" class="btn btn-default btn-lg btn-block" id="pos-save">Click para finalar la venta</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->

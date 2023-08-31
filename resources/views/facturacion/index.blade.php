@@ -8,9 +8,8 @@
             <div class="col-sm-12 form-group">
                 <label for="">Consular al SIAT</label>
                 <select name="" id="myasync" class="form-control">
-                    <option value="">-- Selecciona una opcion --</option>
-                                    
-                    
+                    <option value="">-- Selecciona una opcion --</option>                                                        
+                    <option value="sincronizarParametricaUnidadMedida">sincronizarParametricaUnidadMedida</option>
                     <option value="sincronizarParametricaTipoMetodoPago">sincronizarParametricaTipoMetodoPago</option>
                     <option value="sincronizarListaProductosServicios">sincronizarListaProductosServicios</option>
                     <option value="sincronizarParametricaTipoPuntoVenta">sincronizarParametricaTipoPuntoVenta</option>

@@ -338,8 +338,9 @@ class SellPosController extends Controller
         }
 
         try {
+            // return $request->input('siat');
             $input = $request->except('_token');
-
+            $input['siat'] = $input['siat'];
             $input['is_quotation'] = 0;
             //status is send as quotation from Add sales screen.
             if ($input['status'] == 'quotation') {

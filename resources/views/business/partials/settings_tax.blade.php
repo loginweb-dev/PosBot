@@ -65,7 +65,7 @@
                 </select>               
             </div>
         </div>
-
+{{-- 
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="">Municipio</label>
@@ -88,7 +88,7 @@
                     <input type="text" class="form-control" name="tax_telefono">
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="col-sm-12">
             <div class="form-group">

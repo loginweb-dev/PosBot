@@ -25,10 +25,21 @@
     </div>
 
     <div class="modal-body">
-
       <div class="row">
+        <div class="col-md-3">
+            <label for="">Tipo de cliente</label>
+            <br>
+            <label class="radio-inline">
+                <input type="radio" name="contact_type_radio" id="inlineRadio1" value="individual">
+                @lang('lang_v1.individual')
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="contact_type_radio" id="inlineRadio2" value="business">
+                @lang('business.business')
+            </label>
+        </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
               {!! Form::label('type', __('contact.contact_type') . ':*' ) !!}
               <div class="input-group">
@@ -39,17 +50,8 @@
               </div>
           </div>
         </div>
-        <div class="col-md-4 mt-15">
-            <label class="radio-inline">
-                <input type="radio" name="contact_type_radio" id="inlineRadio1" value="individual">
-                @lang('lang_v1.individual')
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="contact_type_radio" id="inlineRadio2" value="business">
-                @lang('business.business')
-            </label>
-        </div>
-        <div class="col-md-4">
+
+        <div class="col-md-3">
           <div class="form-group">
               {!! Form::label('contact_id', __('lang_v1.contact_id') . ':') !!}
               <div class="input-group">
@@ -57,14 +59,15 @@
                       <i class="fa fa-id-badge"></i>
                   </span>
                   <input type="hidden" id="hidden_id" value="{{$contact->id}}">
-                  {!! Form::text('contact_id', $contact->contact_id, ['class' => 'form-control','placeholder' => __('lang_v1.contact_id')]); !!}
+                  {!! Form::text('contact_id', $contact->contact_id, ['class' => 'form-control','placeholder' => __('lang_v1.leave_empty_to_autogenerate')]); !!}
               </div>
-              <p class="help-block">
+              {{-- <p class="help-block">
                 @lang('lang_v1.leave_empty_to_autogenerate')
-            </p>
+            </p> --}}
           </div>
         </div>
-        <div class="col-md-4 customer_fields">
+
+        <div class="col-md-3 customer_fields">
           <div class="form-group">
               {!! Form::label('customer_group_id', __('lang_v1.customer_group') . ':') !!}
               <div class="input-group">
@@ -76,7 +79,7 @@
           </div>
         </div>
         <div class="clearfix customer_fields"></div>
-        <div class="col-md-4 business">
+        <div class="col-md-6 business">
           <div class="form-group">
               {!! Form::label('supplier_business_name', __('business.business_name') . ':') !!}
               <div class="input-group">
@@ -126,7 +129,8 @@
             </div>
         </div>
       </div>
-      <div class="col-md-3">
+
+      {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('alternate_number', __('contact.alternate_contact_number') . ':') !!}
             <div class="input-group">
@@ -136,8 +140,9 @@
                 {!! Form::text('alternate_number', $contact->alternate_number, ['class' => 'form-control', 'placeholder' => __('contact.alternate_contact_number')]); !!}
             </div>
         </div>
-      </div>
-      <div class="col-md-3">
+      </div> --}}
+
+      {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('landline', __('contact.landline') . ':') !!}
             <div class="input-group">
@@ -147,7 +152,8 @@
                 {!! Form::text('landline', $contact->landline, ['class' => 'form-control', 'placeholder' => __('contact.landline')]); !!}
             </div>
         </div>
-      </div>
+      </div> --}}
+
       <div class="col-md-3">
             <div class="form-group">
                 {!! Form::label('email', __('business.email') . ':') !!}
@@ -160,7 +166,19 @@
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('tax_number', __('contact.tax_no') . ':') !!}
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-info"></i>
+                    </span>
+                    {!! Form::text('tax_number', $contact->tax_number, ['class' => 'form-control', 'placeholder' => __('contact.tax_no')]); !!}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
             <div class="form-group individual">
                 {!! Form::label('dob', __('lang_v1.dob') . ':') !!}
                 <div class="input-group">
@@ -173,6 +191,8 @@
             </div>
         </div>
         
+  
+
         <!-- lead additional field -->
         <div class="col-md-4 lead_additional_div">
           <div class="form-group">
@@ -196,7 +216,7 @@
               </div>
           </div>
         </div>
-        <div class="col-md-6 lead_additional_div">
+        <div class="col-md-4 lead_additional_div">
           <div class="form-group">
               {!! Form::label('user_id', __('lang_v1.assigned_to') . ':*' ) !!}
               <div class="input-group">
@@ -215,61 +235,48 @@
         <div id="more_div" class="hide">
 
             <div class="col-md-12"><hr/></div>
-        
-        <div class="col-md-4">
-          <div class="form-group">
-              {!! Form::label('tax_number', __('contact.tax_no') . ':') !!}
-              <div class="input-group">
-                  <span class="input-group-addon">
-                      <i class="fa fa-info"></i>
-                  </span>
-                  {!! Form::text('tax_number', $contact->tax_number, ['class' => 'form-control', 'placeholder' => __('contact.tax_no')]); !!}
-              </div>
-          </div>
-        </div>
-
-        
-        <div class="col-md-4 opening_balance">
-          <div class="form-group">
-              {!! Form::label('opening_balance', __('lang_v1.opening_balance') . ':') !!}
-              <div class="input-group">
-                  <span class="input-group-addon">
-                      <i class="fas fa-money-bill-alt"></i>
-                  </span>
-                  {!! Form::text('opening_balance', $opening_balance, ['class' => 'form-control input_number']); !!}
-              </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 pay_term">
-          <div class="form-group">
-            <div class="multi-input">
-              {!! Form::label('pay_term_number', __('contact.pay_term') . ':') !!} @show_tooltip(__('tooltip.pay_term'))
-              <br/>
-              {!! Form::number('pay_term_number', $contact->pay_term_number, ['class' => 'form-control width-40 pull-left', 'placeholder' => __('contact.pay_term')]); !!}
-
-              {!! Form::select('pay_term_type', ['months' => __('lang_v1.months'), 'days' => __('lang_v1.days')], $contact->pay_term_type, ['class' => 'form-control width-60 pull-left','placeholder' => __('messages.please_select')]); !!}
+                
+            <div class="col-md-4 opening_balance">
+            <div class="form-group">
+                {!! Form::label('opening_balance', __('lang_v1.opening_balance') . ':') !!}
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-money-bill-alt"></i>
+                    </span>
+                    {!! Form::text('opening_balance', $opening_balance, ['class' => 'form-control input_number']); !!}
+                </div>
             </div>
-          </div>
+            </div>
+
+            <div class="col-md-4 pay_term">
+            <div class="form-group">
+                <div class="multi-input">
+                    {!! Form::label('pay_term_number', __('contact.pay_term') . ':') !!} @show_tooltip(__('tooltip.pay_term'))
+                    <br/>
+                    {!! Form::number('pay_term_number', $contact->pay_term_number, ['class' => 'form-control width-40 pull-left', 'placeholder' => __('contact.pay_term')]); !!}
+
+                    {!! Form::select('pay_term_type', ['months' => __('lang_v1.months'), 'days' => __('lang_v1.days')], $contact->pay_term_type, ['class' => 'form-control width-60 pull-left','placeholder' => __('messages.please_select')]); !!}
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="clearfix"></div> --}}
+            
+            <div class="col-md-4 customer_fields">
+            <div class="form-group">
+                {!! Form::label('credit_limit', __('lang_v1.credit_limit') . ':') !!}
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-money-bill-alt"></i>
+                    </span>
+                    {!! Form::text('credit_limit', $contact->credit_limit != null ? @num_format($contact->credit_limit) : null, ['class' => 'form-control input_number', 'placeholder' => __('lang_v1.credit_limit_help')]); !!}
+                </div>
+                {{-- <p class="help-block">@lang('lang_v1.credit_limit_help')</p> --}}
+            </div>
+            </div>
+            
+            <div class="col-md-12">
+            <hr/>
         </div>
-        <div class="clearfix"></div>
-        
-        <div class="col-md-4 customer_fields">
-          <div class="form-group">
-              {!! Form::label('credit_limit', __('lang_v1.credit_limit') . ':') !!}
-              <div class="input-group">
-                  <span class="input-group-addon">
-                      <i class="fas fa-money-bill-alt"></i>
-                  </span>
-                  {!! Form::text('credit_limit', $contact->credit_limit != null ? @num_format($contact->credit_limit) : null, ['class' => 'form-control input_number']); !!}
-              </div>
-              <p class="help-block">@lang('lang_v1.credit_limit_help')</p>
-          </div>
-        </div>
-          
-      <div class="col-md-12">
-        <hr/>
-      </div>
       
       <div class="col-md-6">
         <div class="form-group">
@@ -525,8 +532,8 @@
     </div>
 
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary">@lang( 'messages.update' )</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">@lang( 'messages.close' )</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">@lang( 'messages.close' )</button>
+        <button type="submit" class="btn btn-primary">@lang( 'messages.update' )</button>
     </div>
 
     {!! Form::close() !!}

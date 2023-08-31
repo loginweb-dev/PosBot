@@ -291,4 +291,10 @@ class Contact extends Authenticatable
         
         return implode(' ', $name_array);
     }
+
+    // public function getGroup()
+    // {
+    //     return $this->hasMany(\App\CustumerGroup::class, 'customer_group_id');
+    // }
+
 }
