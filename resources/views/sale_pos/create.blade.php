@@ -44,9 +44,9 @@
 						</div>
 					</div>
 				@if(empty($pos_settings['hide_product_suggestion']) && !isMobile())
-				<div class="col-md-5 no-padding">
-					@include('sale_pos.partials.pos_sidebar')
-				</div>
+					<div class="col-md-5 no-padding">
+						@include('sale_pos.partials.pos_sidebar')
+					</div>
 				@endif
 			</div>
 		</div>

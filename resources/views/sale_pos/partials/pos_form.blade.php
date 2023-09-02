@@ -185,6 +185,7 @@
 @endif
 <div class="row">
 	<div class="col-sm-12 pos_product_div">
+		{{-- <div class="col-sm-12"> --}}
 		<input type="hidden" name="sell_price_tax" id="sell_price_tax" value="{{$business_details->sell_price_tax}}">
 
 		<!-- Keeps count of product rows -->

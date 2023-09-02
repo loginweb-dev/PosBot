@@ -343,7 +343,7 @@ legend {
   margin-top: 20px;
 }
 #product_list_body {
-    max-height: 485px;
+    /* max-height: 485px; */
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -513,10 +513,11 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer !important;
 }
 .pos_product_div{
-    min-height: 47vh;
-    max-height: 57vh;
+    min-height: 66vh;
+    max-height: 66vh;
+    /* height: 100%; */
     overflow-y: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .bg-lightgray{
     background-color: #F0EDED !important;

@@ -120,7 +120,7 @@
 				          </div>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-default btn-lg btn-block" id="pos-save">Click para finalar la venta</button>
+				<button type="submit" class="btn btn-default btn-lg btn-block" id="pos-save">Click para finalizar la venta</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
