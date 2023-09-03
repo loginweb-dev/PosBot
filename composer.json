@@ -33,6 +33,7 @@
         "nwidart/laravel-modules": "5.1.0",
         "pusher/pusher-php-server": "~3.0",
         "razorpay/razorpay": "2.*",
+        "silviolleite/laravelpwa": "^2.0",
         "spatie/flysystem-dropbox": "^1.0",
         "spatie/laravel-activitylog": "^3.2",
         "spatie/laravel-backup": "^5.7",

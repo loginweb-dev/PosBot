@@ -21,16 +21,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png" sizes="16x16"> 
-
         <title>@yield('title') - {{ Session::get('business.name') }}</title>
-        
         @include('layouts.partials.css')
-
         @yield('css')
+        @laravelPWA
     </head>
 
     <body class="@if($pos_layout) hold-transition lockscreen @else hold-transition skin-@if(!empty(session('business.theme_color'))){{session('business.theme_color')}}@else{{'blue-light'}}@endif sidebar-mini @endif">

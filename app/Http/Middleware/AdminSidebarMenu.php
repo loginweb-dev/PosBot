@@ -28,6 +28,7 @@ class AdminSidebarMenu
             $pos_settings = !empty(session('business.pos_settings')) ? json_decode(session('business.pos_settings'), true) : [];
 
             $is_admin = auth()->user()->hasRole('Admin#' . session('business.id')) ? true : false;
+            
             //Home
             $menu->url(action('HomeController@index'), __('home.home'), ['icon' => 'fa fas fa-tachometer-alt', 'active' => request()->segment(1) == 'home'])->order(5);
 
@@ -764,6 +765,13 @@ class AdminSidebarMenu
                     ['icon' => 'fa fas fa-users']
                 )->order(120);
             }
+
+            //Multimedia
+            if (auth()->user()->can('user.view')) {
+                $menu->url(action('ChatbotController@multimedia'), 'Multimedia', ['icon' => 'fa fas fa-image', 'active' => request()->segment(1) == 'multimedia'])->order(50);
+            }
+            
+            
 
         });
         

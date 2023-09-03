@@ -489,7 +489,7 @@ $(document).ready(function() {
     if ($('textarea#product_description').length > 0) {
         tinymce.init({
             selector: 'textarea#product_description',
-            height:250
+            height:600
         });
     }
 });
