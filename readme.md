@@ -3,8 +3,8 @@ El Sistema PosBot es un sistema web para gestionar ventas en internet que incluy
 
 
 ## Direccion
-https://panel.botcenter.lat/
-mas info al +591 72823861
+- https://panel.botcenter.lat/
+- mas info al +591 72823861
 
 ### Video Tutoriales
 - https://youtube.com/playlist?list=PL2SoOLWxHIbEHmCyNIR0hY-gY7nnGyUpu

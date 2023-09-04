@@ -25,6 +25,7 @@ class InstallController extends Controller
      */
     public function index()
     {
+        // return 'hola';
         if (!auth()->user()->can('superadmin')) {
             abort(403, 'Unauthorized action.');
         }
@@ -36,9 +37,10 @@ class InstallController extends Controller
         
         //Check if installed or not.
         $is_installed = System::getProperty($this->module_name . '_version');
+        // return $is_installed;
         if (empty($is_installed)) {
-            DB::statement('SET default_storage_engine=INNODB;');
-            Artisan::call('module:migrate', ['module' => "Woocommerce"]);
+        //     DB::statement('SET default_storage_engine=INNODB;');
+            // Artisan::call('module:migrate', ['module' => "Woocommerce"]);
             System::addProperty($this->module_name . '_version', $this->appVersion);
         }
 

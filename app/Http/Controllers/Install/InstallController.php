@@ -86,7 +86,7 @@ class InstallController extends Controller
      */
     public function index()
     {
-        // return "hola";
+        return "hola";
         //Check for .env file
         $this->isInstalled();
         $this->installSettings();
