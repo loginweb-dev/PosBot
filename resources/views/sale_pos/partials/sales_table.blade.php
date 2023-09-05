@@ -6,7 +6,7 @@
         <tr>
             <th>@lang('messages.action')</th>
             <th>@lang('messages.date')</th>
-            <th>Recibo</th>
+            <th>Nro</th>
             <th>Cliente</th>
             {{-- <th>@lang('lang_v1.contact_no')</th> --}}
             <th>Sucursal</th>

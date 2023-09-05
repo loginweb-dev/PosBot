@@ -41,8 +41,8 @@
                     <tr>
                         <th>@lang('messages.action')</th>
                         <th>@lang('messages.date')</th>
-                        <th>Recibo</th>
-                        <th>cliente</th>
+                        <th>Nro</th>
+                        <th>Cliente</th>
                         {{-- <th>@lang('lang_v1.contact_no')</th> --}}
                         <th>@lang('sale.location')</th>
                         {{-- <th>@lang('sale.payment_status')</th> --}}<th>Estado</th>
@@ -61,7 +61,7 @@
                         <th>@lang('sale.shipping_details')</th>
                         <th>@lang('restaurant.table')</th>
                         <th>@lang('restaurant.service_staff')</th> --}}
-                        <th>Siat</th>
+                        <th>Tipo</th>
                     </tr>
                 </thead>
                 <tbody></tbody>

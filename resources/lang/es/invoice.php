@@ -1,13 +1,13 @@
 <?php
  return [
-"invoice_settings" => "Configuración de factura",
-"manage_your_invoices" => "Administra la configuración de tu factura", /* modified */
-"all_your_invoice_schemes" => "Todos tus esquemas de factura", /* modified */
+"invoice_settings" => "Config impresión",
+"manage_your_invoices" => "Administra la configuración de tu impresión", /* modified */
+"all_your_invoice_schemes" => "Todos tus esquemas", /* modified */
 "added_success" => "Configuración de factura agregada con éxito",
 "updated_success" => "Configuración de factura actualizada con éxito",
 "deleted_success" => "Configuración de factura eliminada con éxito",
-"add_invoice" => "Agregar nuevo esquema de factura",
-"edit_invoice" => "Editar esquema de factura",
+"add_invoice" => "Agregar nuevo esquema",
+"edit_invoice" => "Editar esquema",
 "name" => "Nombre",
 "prefix" => "Prefijo",
 "start_number" => "Empezar desde",
@@ -15,8 +15,8 @@
 "preview" => "Avance",
 "not_selected" => "No seleccionado",
 "invoice_count" => "Recuento de facturas",
-"invoice_schemes" => "Esquemas de factura",
-"invoice_layouts" => "Disposición de facturas",
+"invoice_schemes" => "Esquemas",
+"invoice_layouts" => "Diseños",
 "invoice_layout" => "Diseño de factura",
 "all_your_invoice_layouts" => "Todos sus diseños de factura",
 "add_invoice_layout" => "Agregar nuevo diseño de factura",
@@ -33,7 +33,7 @@
 "highlight_color" => "Color de resaltado",
 "footer_text" => "Texto de pie de página",
 "layout_added_success" => "Diseño de factura agregado con éxito",
-"edit_invoice_layout" => "Editar diseño de factura",
+"edit_invoice_layout" => "Editar diseño de la impresión",
 "layout_updated_success" => "Diseño de factura actualizado con éxito",
 "used_in_locations" => "Usado en ubicaciones",
 "show_business_name" => "Mostrar nombre comercial",

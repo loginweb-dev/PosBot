@@ -13,7 +13,7 @@
 				</div>
 			@endif
 			<button type="button" class="@if($is_mobile) col-xs-6 @endif btn bg-info text-white btn-default btn-flat @if($pos_settings['disable_draft'] != 0) hide @endif" id="pos-draft"><i class="fas fa-edit"></i> @lang('sale.draft')</button>
-			<button type="button" class="btn btn-default bg-yellow btn-flat @if($is_mobile) col-xs-6 @endif" id="pos-quotation"><i class="fas fa-edit"></i> @lang('lang_v1.quotation')</button>
+			<button type="button" class="btn bg-navy btn-default btn-flat @if($is_mobile) col-xs-6 @endif" id="pos-quotation"><i class="fas fa-edit"></i> @lang('lang_v1.quotation')</button>
 
 			@if(empty($pos_settings['disable_suspend']))
 				<button type="button" 
@@ -46,21 +46,21 @@
 			{{-- <a href="#" class="btn btn-primary">Generar factura</a> --}}
 			<button type="button" class="btn btn-success @if(!$is_mobile) @endif btn-flat no-print @if($pos_settings['disable_express_checkout'] != 0 || !array_key_exists('cash', $payment_types)) hide @endif pos-express-finalize @if($is_mobile) col-xs-6 @endif" data-pay_method="cash" title="@lang('tooltip.express_checkout')"> <i class="fas fa-money-bill-alt" aria-hidden="true"></i> @lang('lang_v1.express_checkout_cash')</button>
 			@if(!$is_mobile)
-			&nbsp;&nbsp;
-			<b>@lang('sale.total_payable'):</b>
-			<input type="hidden" name="final_total" 
-										id="final_total_input" value=0>
-			<span id="total_payable" class="text-success lead text-bold">0</span>
-			&nbsp;&nbsp;
+				&nbsp;&nbsp;
+				<b>@lang('sale.total_payable'):</b>
+				<input type="hidden" name="final_total" 
+											id="final_total_input" value=0>
+				<span id="total_payable" class="text-default lead text-bold">0</span>
+				&nbsp;&nbsp;
 			@endif
-			{{-- @if(empty($edit))
+			@if(empty($edit))
 				<button type="button" class="btn btn-danger btn-flat @if($is_mobile) col-xs-6 @else btn-xs @endif" id="pos-cancel"> <i class="fas fa-window-close"></i> @lang('sale.cancel')</button>
 			@else
 				<button type="button" class="btn btn-danger btn-flat hide @if($is_mobile) col-xs-6 @else btn-xs @endif" id="pos-delete"> <i class="fas fa-trash-alt"></i> @lang('messages.delete')</button>
-			@endif --}}
+			@endif
 
 			@if(!isset($pos_settings['hide_recent_trans']) || $pos_settings['hide_recent_trans'] == 0)
-			<button type="button" class="btn btn-primary btn-flat pull-right @if($is_mobile) col-xs-6 @endif" data-toggle="modal" data-target="#recent_transactions_modal" id="recent-transactions"> <i class="fas fa-clock"></i> @lang('lang_v1.recent_transactions')</button>
+				<button type="button" class="btn btn-default bg-navy btn-flat pull-right @if($is_mobile) col-xs-6 @endif" data-toggle="modal" data-target="#recent_transactions_modal" id="recent-transactions"> <i class="fas fa-clock"></i> @lang('lang_v1.recent_transactions')</button>
 			@endif
 			
 		</div>

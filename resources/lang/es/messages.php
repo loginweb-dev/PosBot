@@ -9,7 +9,7 @@
 "view" => "Ver",
 "delete" => "Borrar",
 "close" => "Cerrar", /* modified */
-"something_went_wrong" => "Algo salió mal, por favor intente de nuevo más tarde",
+"something_went_wrong" => "Algo salió mal, por favor intente de nuevo más tarde 2",
 "required" => "Este campo es requerido",
 "please_select" => "Seleccione",
 "cancel" => "Cancelar",

@@ -183,6 +183,7 @@ class SellPosController extends Controller
      */
     public function create()
     {
+        // return true;
         $business_id = request()->session()->get('user.business_id');
 
         if (!(auth()->user()->can('superadmin') || auth()->user()->can('sell.create') || ($this->moduleUtil->hasThePermissionInSubscription($business_id, 'repair_module') && auth()->user()->can('repair.create')))) {
@@ -340,7 +341,8 @@ class SellPosController extends Controller
         try {
             // return $request->input('siat');
             $input = $request->except('_token');
-            $input['siat'] = $input['siat'];
+            $input['siat'] = $input['invoice_layout_id'];
+            // $input['siat'] = 100;
             $input['is_quotation'] = 0;
             //status is send as quotation from Add sales screen.
             if ($input['status'] == 'quotation') {
@@ -352,6 +354,7 @@ class SellPosController extends Controller
                 $input['sub_status'] = 'proforma';
             }
             
+            // return true;
             //Check Customer credit limit
             $is_credit_limit_exeeded = $this->transactionUtil->isCustomerCreditLimitExeeded($input);
 
@@ -369,6 +372,7 @@ class SellPosController extends Controller
                 }
             }
 
+            // return true;
             if (!empty($input['products'])) {
                 $business_id = $request->session()->get('user.business_id');
 

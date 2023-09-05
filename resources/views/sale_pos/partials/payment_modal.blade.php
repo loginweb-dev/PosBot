@@ -49,15 +49,23 @@
 									!empty($transaction)? $transaction->staff_note:null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => __('sale.staff_note')]); !!}
 								</div>
 							</div>
+							{{-- {{ $invoice_layouts }} --}}
 							<div class="col-md-4">
-								{!! Form::label('siat', 'Tipo de Venta') !!}
-								{{-- <br>
-								{!! Form::checkbox('siat', null, false) !!} --}}
-								<select name="siat" id="siat" class="form-control">
+								{!! Form::label('invoice_layout_id', 'Diseño de venta') !!}
+								<br>
+								{{-- {!! Form::checkbox('siat', null, false) !!} --}}
+								{{-- <select name="siat" id="siat" class="form-control">
 									<option value="0">Recibo</option>
 									<option value="1">Factura</option>
-								</select>
-								<small>si cambia a factura la venta se enviara a inpuestos nacionales</small>
+								</select> --}}
+								
+									{{-- <div class="col-md-4"> --}}
+										{{-- <div class="form-group"> --}}
+								{!! Form::select('invoice_layout_id', $invoice_layouts, null, ['class' => 'form-control select2', 'placeholder' => 'Elije una opcion', 'id' => 'invoice_layout_id', 'style' => 'width:100%;']); !!}
+										{{-- </div> --}}
+									{{-- </div> --}}
+								
+								{{-- <small>si cambia a factura la venta se enviara a inpuestos nacionales</small> --}}
 							</div>
 						</div>
 					</div>
@@ -120,7 +128,7 @@
 				          </div>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-default btn-lg btn-block" id="pos-save">Click para finalizar la venta</button>
+				<button type="submit" class="btn bg-navy btn-default btn-block" id="pos-save">Click para finalizar la venta</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->

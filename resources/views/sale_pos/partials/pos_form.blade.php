@@ -52,12 +52,12 @@
 </div>
 <div class="row">
 	@if(!empty($pos_settings['show_invoice_layout']))
-	<div class="col-md-4">
-		<div class="form-group">
-		{!! Form::select('invoice_layout_id', 
-					$invoice_layouts, $default_location->invoice_layout_id, ['class' => 'form-control select2', 'placeholder' => __('lang_v1.select_invoice_layout'), 'id' => 'invoice_layout_id']); !!}
+		<div class="col-md-4">
+			<div class="form-group">
+			{!! Form::select('invoice_layout_id', 
+						$invoice_layouts, $default_location->invoice_layout_id, ['class' => 'form-control select2', 'placeholder' => __('lang_v1.select_invoice_layout'), 'id' => 'invoice_layout_id']); !!}
+			</div>
 		</div>
-	</div>
 	@endif
 	<input type="hidden" name="pay_term_number" id="pay_term_number" value="{{$walk_in_customer['pay_term_number'] ?? ''}}">
 	<input type="hidden" name="pay_term_type" id="pay_term_type" value="{{$walk_in_customer['pay_term_type'] ?? ''}}">
