@@ -1181,6 +1181,7 @@ class SellController extends Controller
      */
     public function getQuotations()
     {
+        // return true;
         if (!auth()->user()->can('quotation.view_all') && !auth()->user()->can('quotation.view_own')) {
             abort(403, 'Unauthorized action.');
         }

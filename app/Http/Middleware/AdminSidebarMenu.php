@@ -32,24 +32,6 @@ class AdminSidebarMenu
             //Home
             $menu->url(action('HomeController@index'), __('home.home'), ['icon' => 'fa fas fa-tachometer-alt', 'active' => request()->segment(1) == 'home'])->order(5);
 
-            //gosystem y chatbot
-            $menu->dropdown(
-                "Chat & Siat",
-                function ($sub) {
-                        $sub->url(
-                            action('ChatbotController@chatbot'),
-                            "Chatbot",
-                            ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'chatbot']
-                        );
-                        $sub->url(
-                            action('SiatController@facturas'),
-                            "Facturas",
-                            ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'facturas']
-                        );
-                },
-                ['icon' => 'fa fas fa-comments-dollar']
-            )->order(10);
-
 
             //Contacts dropdown
             if (auth()->user()->can('supplier.view') || auth()->user()->can('customer.view') || auth()->user()->can('supplier.view_own') || auth()->user()->can('customer.view_own')) {
@@ -766,13 +748,28 @@ class AdminSidebarMenu
                 )->order(120);
             }
 
-            //Multimedia
-            if (auth()->user()->can('user.view')) {
+            //----------------------------------------------
+            //gosystem y chatbot
+            if (auth()->user()->can('customer.view_own') || auth()->user()->can('customer.view')) {
+                $menu->dropdown(
+                    "Chat & Siat",
+                    function ($sub) {
+                            $sub->url(
+                                action('ChatbotController@chatbot'),
+                                "Chatbot",
+                                ['icon' => 'fa fas fa-briefcase', 'active' => request()->segment(1) == 'chatbot']
+                            );
+                            $sub->url(
+                                action('SiatController@facturas'),
+                                "Facturas",
+                                ['icon' => 'fa fas fa-handshake', 'active' => request()->segment(1) == 'facturas']
+                            );
+                    },
+                    ['icon' => 'fa fas fa-comments-dollar']
+                )->order(10);   
+                //Multimedia       
                 $menu->url(action('ChatbotController@multimedia'), 'Multimedia', ['icon' => 'fa fas fa-image', 'active' => request()->segment(1) == 'multimedia'])->order(50);
-            }
-
-            //Rutas y Mapas
-            if (auth()->user()->can('user.view')) {
+                //Rutas y Mapas     
                 $menu->url(action('MapController@index'), 'Mapas & Rutas', ['icon' => 'fa fas fa-map', 'active' => request()->segment(1) == 'maps'])->order(51);
             }
                 

@@ -27,6 +27,7 @@
 
     <div class="modal-body">
         <div class="row">            
+            
             <div class="col-md-3">
                 <label for="">Tipo de cliente</label>
                 <br>
@@ -124,7 +125,7 @@
                         <span class="input-group-addon">
                             <i class="fa fa-mobile"></i>
                         </span>
-                        {!! Form::text('mobile', null, ['class' => 'form-control', 'required', 'placeholder' => __('contact.mobile')]); !!}
+                        {!! Form::text('mobile', 0, ['class' => 'form-control', 'required', 'placeholder' => __('contact.mobile')]); !!}
                     </div>
                 </div>
             </div>
@@ -228,6 +229,7 @@
         <div class="row">
             <div class="col-md-12">
                 <button type="button" class="btn btn-primary center-block more_btn" data-target="#more_div">@lang('lang_v1.more_info') <i class="fa fa-chevron-down"></i></button>
+                <small>Solo los campos con * son obligatorios</small>
             </div>
 
             <div id="more_div" class="hide">
@@ -351,7 +353,7 @@
             </div>
           </div>
 
-          <div class="clearfix"></div>
+          {{-- <div class="clearfix"></div>
           <div class="col-md-12">
             <hr/>
           </div>
@@ -437,14 +439,14 @@
                 {!! Form::text('custom_field10', null, ['class' => 'form-control', 
                     'placeholder' => $contact_custom_field10]); !!}
             </div>
-          </div>
-          <div class="col-md-12 shipping_addr_div"><hr></div>
+          </div> --}}
+          {{-- <div class="col-md-12 shipping_addr_div"><hr></div>
           <div class="col-md-8 col-md-offset-2 shipping_addr_div mb-10" >
               <strong>{{__('lang_v1.shipping_address')}}</strong><br>
               {!! Form::text('shipping_address', null, ['class' => 'form-control', 
                     'placeholder' => __('lang_v1.search_address'), 'id' => 'shipping_address']); !!}
             <div class="mb-10" id="map"></div>
-          </div>
+          </div> --}}
           @php
                 $shipping_custom_label_1 = !empty($custom_labels['shipping']['custom_field_1']) ? $custom_labels['shipping']['custom_field_1'] : '';
 
