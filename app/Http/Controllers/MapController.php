@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Transaction;
 
 class MapController extends Controller
 {
@@ -14,9 +15,10 @@ class MapController extends Controller
      */
     public function index()
     {
-        //
-        $minegocio = \App\User::where("username", Auth::user()->username)->with("business")->first(); 
-		return view("maps.index", compact("minegocio"));
+        // return Auth::user()->id;
+        // $minegocio = \App\User::where("username", Auth::user()->username)->with("business")->first(); 
+        $miscotizaciones = Transaction::where('created_by', Auth::user()->id)->where('status', 'draft')->where('type', 'sell')->get();
+        return view("maps.index", compact("miscotizaciones"));
     }
 
     /**

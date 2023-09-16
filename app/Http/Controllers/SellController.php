@@ -356,15 +356,15 @@ class SellController extends Controller
                         if (!$only_shipments) {
                             if ($row->is_direct_sale == 0) {
                                 if (auth()->user()->can("sell.update")) {
-                                    $html .= '<li><a target="_blank" href="' . action('SellPosController@edit', [$row->id]) . '"><i class="fas fa-edit"></i> ' . __("messages.edit") . '</a></li>';
+                                    $html .= '<li><a href="' . action('SellPosController@edit', [$row->id]) . '"><i class="fas fa-edit"></i> ' . __("messages.edit") . '</a></li>';
                                 }
                             } elseif ($row->type == 'sales_order') {
                                 if (auth()->user()->can("so.update")) {
-                                    $html .= '<li><a target="_blank" href="' . action('SellController@edit', [$row->id]) . '"><i class="fas fa-edit"></i> ' . __("messages.edit") . '</a></li>';
+                                    $html .= '<li><a href="' . action('SellController@edit', [$row->id]) . '"><i class="fas fa-edit"></i> ' . __("messages.edit") . '</a></li>';
                                 }
                             } else {
                                 if (auth()->user()->can("direct_sell.update")) {
-                                    $html .= '<li><a target="_blank" href="' . action('SellController@edit', [$row->id]) . '"><i class="fas fa-edit"></i> ' . __("messages.edit") . '</a></li>';
+                                    $html .= '<li><a href="' . action('SellController@edit', [$row->id]) . '"><i class="fas fa-edit"></i> ' . __("messages.edit") . '</a></li>';
                                 }
                             }
 
@@ -1312,13 +1312,13 @@ class SellController extends Controller
                         if (auth()->user()->can('draft.update') || auth()->user()->can('quotation.update')) {
                             if($row->is_direct_sale == 1) {
                                 $html .= '<li>
-                                            <a target="_blank" href="'.action('SellController@edit', [$row->id]).'">
+                                            <a href="'.action('SellController@edit', [$row->id]).'">
                                                 <i class="fas fa-edit"></i>' .__("messages.edit").'
                                             </a>
                                         </li>';
                             } else {
                                 $html .= '<li>
-                                            <a target="_blank" href="'.action('SellPosController@edit', [$row->id]).'">
+                                            <a href="'.action('SellPosController@edit', [$row->id]).'">
                                                 <i class="fas fa-edit"></i>'.  __("messages.edit").'
                                             </a>
                                         </li>';
@@ -1345,11 +1345,7 @@ class SellController extends Controller
                                     </li>';
                         }
 
-                        if($row->sub_status != "proforma") {
-                            $html .= '<li>
-                                        <a href="'.action('SellPosController@convertToProforma', [$row->id]).'" class="convert-to-proforma"><i class="fas fa-sync-alt"></i>'.__("lang_v1.convert_to_proforma").'</a>
-                                    </li>';
-                        }
+            
 
                         if (auth()->user()->can('draft.delete') || auth()->user()->can('quotation.delete')) {
                             $html .= '<li>
@@ -1357,16 +1353,28 @@ class SellController extends Controller
                                 </li>';
                         }
 
+                        // if($row->sub_status == "quotation") {
+                        //     $html .= '<li>
+                        //                 <a href="'.action("SellPosController@showInvoiceUrl", [$row->id]).'" class="view_invoice_url"><i class="fas fa-eye"></i>'.__("lang_v1.view_quote_url").'</a>
+                        //             </li>
+                        //             <li>
+                        //                 <a href="#" data-href="'.action("NotificationController@getTemplate", ["transaction_id" => $row->id,"template_for" => "new_quotation"]).'" class="btn-modal" data-container=".view_modal"><i class="fa fa-envelope" aria-hidden="true"></i>' . __("lang_v1.new_quotation_notification") . '
+                        //                 </a>
+                        //             </li>';
+                        // }
+
                         if($row->sub_status == "quotation") {
                             $html .= '<li>
                                         <a href="'.action("SellPosController@showInvoiceUrl", [$row->id]).'" class="view_invoice_url"><i class="fas fa-eye"></i>'.__("lang_v1.view_quote_url").'</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-href="'.action("NotificationController@getTemplate", ["transaction_id" => $row->id,"template_for" => "new_quotation"]).'" class="btn-modal" data-container=".view_modal"><i class="fa fa-envelope" aria-hidden="true"></i>' . __("lang_v1.new_quotation_notification") . '
-                                        </a>
                                     </li>';
                         }
 
+                        if($row->sub_status != "proforma") {
+                            $html .= '<li>
+                                        <a href="'.action('SellPosController@convertToProforma', [$row->id]).'" class="convert-to-proforma"><i class="fas fa-sync-alt"></i>'.__("lang_v1.convert_to_proforma").'</a>
+                                    </li>';
+                        }
+                        
                         $html .= '</ul></div>';
 
                         return $html;
