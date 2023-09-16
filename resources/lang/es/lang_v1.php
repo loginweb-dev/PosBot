@@ -22,7 +22,7 @@ return [
     "sales_item_addition_method" => "Método de adición de artículo de venta",
     "add_item_in_new_row" => "Agregar elemento en una nueva fila",
     "increase_item_qty" => "Aumentar la cantidad del artículo si ya existe",
-    "stock_transfers" => "Transferencias de stock", /* modified */
+    "stock_transfers" => "Transf. de Stock", /* modified */
     "all_stock_transfers" => "Todas las transferencias de stock", /* modified */
     "add_stock_transfer" => "Agregar transferencia de stock",
     "list_stock_transfers" => "Listar transferencias de stock", /* modified */

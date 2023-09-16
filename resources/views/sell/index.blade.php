@@ -39,6 +39,7 @@
             <table class="table table-bordered table-striped ajax_view" id="sell_table">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>@lang('messages.action')</th>
                         <th>@lang('messages.date')</th>
                         <th>Nro</th>
@@ -156,6 +157,7 @@
             scrollX:        true,
             scrollCollapse: true,
             columns: [
+                { data: 'id', name: 'id'},
                 { data: 'action', name: 'action', orderable: false, "searchable": false},
                 { data: 'transaction_date', name: 'transaction_date'  },
                 { data: 'invoice_no', name: 'invoice_no'},
@@ -226,7 +228,7 @@
             // dangerMode: true,    
         }).then(async (result) => {
             if (result) {
-                var miventa = await axios.post("/api/venta/id", {id: id})    
+                var miventa = await axios.post("/api/factura/crear", {id: id})    
                 console.log(miventa.data)  
                 toastr.success("Venta enviada al siat..")
             }else{

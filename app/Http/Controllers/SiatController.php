@@ -15,7 +15,6 @@ class SiatController extends Controller
 {
 	public function facturas(){
 		$minegocio = \App\User::where("username", Auth::user()->username)->with("business")->first(); 
-		// return $minegocio;
 		return view("facturacion.index", compact("minegocio"));
     }
 }

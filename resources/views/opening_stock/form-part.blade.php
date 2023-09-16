@@ -1,4 +1,7 @@
 <div class="row">
+	<hr>
+	<hr>
+	<hr>
 	<div class="col-sm-12">
 		@forelse($locations as $key => $value)
 		<div class="box box-solid">
@@ -41,15 +44,10 @@
 
 @foreach($purchases[$key][$variation->id] as $sub_key => $var)
 	@php
-
 	$purchase_line_id = $var['purchase_line_id'];
-
 	$qty = $var['quantity'];
-
 	$purcahse_price = $var['purchase_price'];
-
 	$row_total = $qty * $purcahse_price;
-
 	$subtotal += $row_total;
 	$lot_number = $var['lot_number'];
 	@endphp

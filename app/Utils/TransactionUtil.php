@@ -220,7 +220,8 @@ class TransactionUtil extends Util
             'prefer_payment_method' => !empty($input['prefer_payment_method']) ? $input['prefer_payment_method'] : null,
             'prefer_payment_account' => !empty($input['prefer_payment_account']) ? $input['prefer_payment_account'] : null,
             'is_export' => !empty($input['is_export']) ? 1 : 0,
-            'export_custom_fields_info' => (!empty($input['is_export']) && !empty($input['export_custom_fields_info'])) ? $input['export_custom_fields_info'] : null
+            'export_custom_fields_info' => (!empty($input['is_export']) && !empty($input['export_custom_fields_info'])) ? $input['export_custom_fields_info'] : null,
+            'siat' => $input['siat']
         ];
 
         if (!empty($input['transaction_date'])) {

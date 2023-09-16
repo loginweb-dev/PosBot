@@ -756,6 +756,7 @@ class SellPosController extends Controller
      */
     public function edit($id)
     {
+        // return true;
         $business_id = request()->session()->get('user.business_id');
 
         if (!(auth()->user()->can('superadmin') || auth()->user()->can('sell.update') || ($this->moduleUtil->hasThePermissionInSubscription($business_id, 'repair_module') && auth()->user()->can('repair.update')))) {
@@ -1044,6 +1045,7 @@ class SellPosController extends Controller
         
         try {
             $input = $request->except('_token');
+            $input['siat'] = $input['invoice_layout_id'];
             //status is send as quotation from edit sales screen.
             $input['is_quotation'] = 0;
             if ($input['status'] == 'quotation') {

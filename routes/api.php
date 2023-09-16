@@ -107,7 +107,6 @@ Route::post('setting', function (Request $request) {
 
 // facturacion ---------------------------------------
 //----------------------------------------------------
-
 Route::post('factura/eventos', function (Request $request) {
     $config = new SiatConfig([
         'nombreSistema'	=> env('FAC_NAME_SYS'),
@@ -224,14 +223,15 @@ Route::post('factura/eventos', function (Request $request) {
         default:
             return 'sin datos..';
             break;
-    }
-    
+    }    
 });
 
 Route::post('factura/crear', function (Request $request) {
+    // return $request;
     $miventa = App\Transaction::where('id', $request->id)->with('location', 'business', 'contact', 'sell_lines')->first();
     $micontacto = App\Contact::where('id', $miventa->contact->id)->first();
     $micustomer_group = App\CustomerGroup::find($miventa->contact->customer_group_id);
+    // return $miventa;
     $config = new SiatConfig([
         'nombreSistema'	=> env('FAC_NAME_SYS'),
         'codigoSistema'	=> env('FAC_CODE_SYS'),
@@ -241,13 +241,12 @@ Route::post('factura/crear', function (Request $request) {
         'modalidad' 	=> ServicioSiat::MOD_ELECTRONICA_ENLINEA,
         'ambiente' 		=> ServicioSiat::AMBIENTE_PRODUCCION, //AMBIENTE_PRUEBAS AMBIENTE_PRODUCCION
         'tokenDelegado'	=> env('FAC_TOKEN_SYS')
-        // 'pubCert'       => 'siat/tiluchi/certificado_Sin_Certificado.pem',
-        // 'privCert'      => 'siat/tiluchi/clave_Sin_Certificado.pem',
     ]);
     $codigoPuntoVenta = 0;
     $codigoSucursal = 0;
-
+// return (array)$config;
     $serviceCodigos = new ServicioFacturacionCodigos(null, null, $config->tokenDelegado);
+    // new ServicioFacturacionCodigos()
     $serviceCodigos->setConfig((array)$config);
     $resCuis = $serviceCodigos->cuis($codigoPuntoVenta, $codigoSucursal);
     $serviceCodigos->cuis = $resCuis->RespuestaCuis->codigo;

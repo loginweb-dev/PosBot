@@ -438,7 +438,7 @@ class SellController extends Controller
                         return $html;
                     }
                 )
-                ->removeColumn('id')
+                // ->removeColumn('id')
                 ->editColumn(
                     'final_total',
                     '<span class="final-total" data-orig-value="{{$final_total}}">@format_currency($final_total)</span>'

@@ -43,6 +43,7 @@ Route::middleware(['setData', 'auth', 'SetSessionData', 'language', 'timezone', 
     Route::get('/chatbot', 'ChatbotController@chatbot');
     Route::get('/facturas', 'SiatController@facturas');
     Route::get('/multimedia', 'ChatbotController@multimedia');
+    Route::resource('maps', 'MapController');
 
     Route::get('/home/get-totals', 'HomeController@getTotals');
     Route::get('/home/product-stock-alert', 'HomeController@getProductStockAlert');

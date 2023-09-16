@@ -243,6 +243,7 @@ class GeneralTest
 			$codigoSucursal = 0;
 			
 			$serviceCodigos = new ServicioFacturacionCodigos(null, null, $config->tokenDelegado);
+			// return 
 			$serviceCodigos->setConfig((array)$config);
 			$resCuis = $serviceCodigos->cuis($codigoPuntoVenta, $codigoSucursal);
 			$serviceCodigos->cuis = $resCuis->RespuestaCuis->codigo;

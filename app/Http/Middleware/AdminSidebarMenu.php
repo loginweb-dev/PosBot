@@ -770,7 +770,12 @@ class AdminSidebarMenu
             if (auth()->user()->can('user.view')) {
                 $menu->url(action('ChatbotController@multimedia'), 'Multimedia', ['icon' => 'fa fas fa-image', 'active' => request()->segment(1) == 'multimedia'])->order(50);
             }
-            
+
+            //Rutas y Mapas
+            if (auth()->user()->can('user.view')) {
+                $menu->url(action('MapController@index'), 'Mapas & Rutas', ['icon' => 'fa fas fa-map', 'active' => request()->segment(1) == 'maps'])->order(51);
+            }
+                
             
 
         });
