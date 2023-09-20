@@ -10,7 +10,7 @@
             <th>@lang('messages.action')</th>
             <th>@lang('sale.product')</th>
             {{-- <th>@lang('purchase.business_location') @show_tooltip(__('lang_v1.product_business_location_tooltip'))</th> --}}
-            {{-- <th>Suscursal</th> --}}
+            <th>Suscursal</th>
             @can('view_purchase_price')
                 @php 
                     $colspan++;

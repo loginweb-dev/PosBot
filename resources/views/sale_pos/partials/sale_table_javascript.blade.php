@@ -90,6 +90,7 @@ sell_table = $('#sell_table').DataTable({
             // { data: 'shipping_details', name: 'shipping_details'},
             // { data: 'table_name', name: 'tables.name', @if(empty($is_tables_enabled)) visible: false @endif },
             // { data: 'waiter', name: 'ss.first_name', @if(empty($is_service_staff_enabled)) visible: false @endif }
+            { data: 'siat', name: 'siat'},
         ],
         "fnDrawCallback": function (oSettings) {
             __currency_convert_recursively($('#sell_table'));

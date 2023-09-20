@@ -27,6 +27,7 @@
             <th>@lang('sale.shipping_details')</th>
             <th>@lang('restaurant.table')</th>
             <th>@lang('restaurant.service_staff')</th> --}}
+            <th>Tipo</th>
         </tr>
     </thead>
     {{-- <tfoot>

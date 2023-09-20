@@ -341,7 +341,7 @@ class SellPosController extends Controller
         try {
             // return $request->input('siat');
             $input = $request->except('_token');
-            $input['siat'] = $input['invoice_scheme_id'];
+            $input['siat'] = $input['invoice_layout_id'];
             // $input['siat'] = 0;
             $input['is_quotation'] = 0;
             //status is send as quotation from Add sales screen.
@@ -1040,7 +1040,7 @@ class SellPosController extends Controller
     public function update(Request $request, $id)
     {
         // return $id;
-        $midata = Transaction::find($id);
+        // $midata = Transaction::find($id);
         // return $midata->siat;
         if (!auth()->user()->can('sell.update') && !auth()->user()->can('direct_sell.access') && !auth()->user()->can('so.update')) {
             abort(403, 'Unauthorized action.');
@@ -1048,7 +1048,8 @@ class SellPosController extends Controller
         $is_direct_sale = false;
         try {
             $input = $request->except('_token');
-            $input['siat'] = $midata->siat;
+            // $input['siat'] = $midata->siat;
+            $input['siat'] = $input['invoice_layout_id'];
             //status is send as quotation from edit sales screen.
             $input['is_quotation'] = 0;
             if ($input['status'] == 'quotation') {
