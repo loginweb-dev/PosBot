@@ -82,7 +82,7 @@ sell_table = $('#sell_table').DataTable({
             // { data: 'total_remaining', name: 'total_remaining'},
             // { data: 'return_due', orderable: false, "searchable": false},
             // { data: 'shipping_status', name: 'shipping_status'},
-            // { data: 'total_items', name: 'total_items', "searchable": false},
+            { data: 'total_items', name: 'total_items', "searchable": false},
             // { data: 'types_of_service_name', name: 'tos.name', @if(empty($is_types_service_enabled)) visible: false @endif},
             // { data: 'service_custom_field_1', name: 'service_custom_field_1', @if(empty($is_types_service_enabled)) visible: false @endif},
             // { data: 'added_by', name: 'u.first_name'},
