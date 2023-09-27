@@ -68,6 +68,7 @@ sell_table = $('#sell_table').DataTable({
             }
         },
         columns: [
+            { data: 'id', name: 'id'},
             { data: 'action', name: 'action', orderable: false, "searchable": false},
             { data: 'transaction_date', name: 'transaction_date'  },
             { data: 'invoice_no', name: 'invoice_no'},

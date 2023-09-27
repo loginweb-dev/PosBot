@@ -47,7 +47,7 @@
                         {{-- <th>@lang('lang_v1.contact_no')</th> --}}
                         <th>@lang('sale.location')</th>
                         {{-- <th>@lang('sale.payment_status')</th> --}}<th>Estado</th>
-                        {{-- <th>@lang('lang_v1.payment_method')</th> --}}
+                        <th>@lang('lang_v1.payment_method')</th>
                         {{-- <th>@lang('sale.total_amount')</th> --}}<th>Total</th>
                         {{-- <th>@lang('sale.total_paid')</th> --}}
                         {{-- <th>@lang('lang_v1.sell_due')</th> --}}
@@ -66,32 +66,31 @@
                     </tr>
                 </thead>
                 <tbody></tbody>
-                {{-- <tfoot>
-                    <tr class="bg-gray font-17 footer-total text-center">
-                        <td colspan="6"><strong>@lang('sale.total'):</strong></td>
-                        <td class="footer_payment_status_count"></td>
-                        <td class="payment_method_count"></td>
-                        <td class="footer_sale_total"></td>
-                        <td class="footer_total_paid"></td>
-                        <td class="footer_total_remaining"></td>
-                        <td class="footer_total_sell_return_due"></td>
-                        <td colspan="2"></td>
-                        <td class="service_type_count"></td>
-                        <td colspan="1"></td>
-                    </tr>
-                </tfoot> --}}
+                <tr class="bg-gray font-17 footer-total text-center">
+                    <td colspan="6"><strong>@lang('sale.total')es :</strong></td>
+                    <td class="footer_payment_status_count"></td>
+                    <td class="payment_method_count"></td>
+                    <td class="footer_sale_total"></td>
+                    <td class="footer_total_paid"></td>
+                    {{-- <td class="footer_total_remaining"></td> --}}
+                    {{-- <td class="footer_total_sell_return_due"></td> --}}
+                    {{-- <td colspan="2"></td> --}}
+                    {{-- <td class="service_type_count"></td> --}}
+                    {{-- <td colspan="7"></td> --}}
+                    <td>🤖</td>
+                </tr>
             </table>
         @endif
     @endcomponent
 </section>
 <!-- /.content -->
-{{-- <div class="modal fade payment_modal" tabindex="-1" role="dialog" 
+<div class="modal fade payment_modal" tabindex="-1" role="dialog" 
     aria-labelledby="gridSystemModalLabel">
 </div>
 
 <div class="modal fade edit_payment_modal" tabindex="-1" role="dialog" 
     aria-labelledby="gridSystemModalLabel">
-</div> --}}
+</div>
 
 <!-- This will be printed -->
 <!-- <section class="invoice print_section" id="receipt_section">
@@ -165,7 +164,7 @@
                 // { data: 'mobile', name: 'contacts.mobile'},
                 { data: 'business_location', name: 'bl.name'},
                 { data: 'payment_status', name: 'payment_status'},
-                // { data: 'payment_methods', orderable: false, "searchable": false},
+                { data: 'payment_methods', orderable: false, "searchable": false},
                 { data: 'final_total', name: 'final_total'},
                 // { data: 'total_paid', name: 'total_paid', "searchable": false},
                 // { data: 'total_remaining', name: 'total_remaining'},

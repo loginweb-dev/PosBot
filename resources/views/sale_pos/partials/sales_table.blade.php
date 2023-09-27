@@ -4,6 +4,7 @@
 <table class="table table-bordered table-striped ajax_view" id="sell_table">
     <thead>
         <tr>
+            <th>#</th>
             <th>@lang('messages.action')</th>
             <th>@lang('messages.date')</th>
             <th>Nro</th>
@@ -30,18 +31,19 @@
             <th>Tipo</th>
         </tr>
     </thead>
-    {{-- <tfoot>
+    <tfoot>
         <tr class="bg-gray font-17 footer-total text-center">
-            <td colspan="6"><strong>@lang('sale.total'):</strong></td>
+            <td colspan="6"><strong>@lang('sale.total')es :</strong></td>
             <td class="footer_payment_status_count"></td>
             <td class="payment_method_count"></td>
             <td class="footer_sale_total"></td>
             <td class="footer_total_paid"></td>
-            <td class="footer_total_remaining"></td>
-            <td class="footer_total_sell_return_due"></td>
-            <td colspan="2"></td>
-            <td class="service_type_count"></td>
-            <td colspan="7"></td>
+            {{-- <td class="footer_total_remaining"></td> --}}
+            {{-- <td class="footer_total_sell_return_due"></td> --}}
+            {{-- <td colspan="2"></td> --}}
+            {{-- <td class="service_type_count"></td> --}}
+            {{-- <td colspan="7"></td> --}}
+            <td>🤖</td>
         </tr>
-    </tfoot> --}}
+    </tfoot>
 </table>
