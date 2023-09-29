@@ -27,7 +27,7 @@
             @endcan
             {{-- <th>@lang('report.current_stock')</th> --}}
             <th>Stock</th>
-            {{-- <th>@lang('product.product_type')</th> --}}
+            {{-- <th>@lang('product.product_type')</th> --}}<th>Tipo</th>
             {{-- <th>Tipo</th> --}}
             <th>@lang('product.category')</th>
             <th>@lang('product.brand')</th>

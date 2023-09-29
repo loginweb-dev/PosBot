@@ -161,7 +161,7 @@
             product_table = $('#product_table').DataTable({
                 processing: true,
                 serverSide: true,
-                aaSorting: [[3, 'asc']],
+                aaSorting: [[11, 'desc']],
                 scrollY:        "260vh",
                 scrollX:        true,
                 scrollCollapse: true,
@@ -188,14 +188,14 @@
                     }
                 },
                 columnDefs: [ {
-                    "targets": [0, 1],
+                    "targets": [0, 1, 2],
                     "orderable": false,
                     "searchable": false
                 } ],
                 columns: [
                         { data: 'mass_delete'  },
                         { data: 'image', name: 'products.image'  },
-                        { data: 'action', name: 'action'},
+                        { data: 'action', name: 'action', searchable: false},
                         { data: 'product', name: 'products.name'  },
                         { data: 'product_locations', name: 'product_locations'  },
                         @can('view_purchase_price')
@@ -205,7 +205,7 @@
                             { data: 'selling_price', name: 'max_price', searchable: false},
                         @endcan
                         { data: 'current_stock', searchable: false},
-                        // { data: 'type', name: 'products.type'},
+                        { data: 'type', name: 'products.type'},
                         { data: 'category', name: 'c1.name'},
                         { data: 'brand', name: 'brands.name'},
                         // { data: 'tax', name: 'tax_rates.name', searchable: false},

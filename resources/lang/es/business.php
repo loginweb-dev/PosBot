@@ -30,7 +30,7 @@
 "address" => "Dirección",
 "logo_help" => "El logotipo anterior (si existe) será reemplazado",
 "update_settings" => "Ajustes de actualización",
-"business_settings" => "Configuraion general", /* modified */
+"business_settings" => "Configuración general", /* modified */
 "settings_updated_success" => "Configuración actualizada con éxito",
 "default_profit_percent" => "Porcentaje de beneficio predeterminado",
 "default_sales_tax" => "Impuesto de venta predeterminado", /* modified */
